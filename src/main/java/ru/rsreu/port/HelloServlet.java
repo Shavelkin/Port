@@ -1,4 +1,4 @@
-package ru.rsreu.port.port;
+package ru.rsreu.port;
 
 import java.io.*;
 import javax.servlet.http.*;
