@@ -8,9 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
-
+<div class="auth-container">
+    <form name = "LoginForm" method="POST" action = "login">
+        <div class="input">
+            <input type="text" name="login" placeholder="Введите логин"><br><br>
+            <input type="password" name="password" placeholder="Введите пароль">
+        </div><br>
+        <button class="submit">Войти</button>
+    </form>
+</div>
 </body>
 </html>
