@@ -2,8 +2,13 @@ package ru.rsreu.port.enums;
 
 public enum Route {
 
-    LOGIN("/login");
+    LOGIN("/login"),
 
+    ADMIN_PROFILE("/adminProfile"),
+
+    DISPATCHER_PROFILE("/dispatcherProfile"),
+
+    CAPTAIN_PROFILE("/captainProfile");
     private final String route;
 
     Route(String route) {

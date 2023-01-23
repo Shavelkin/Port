@@ -3,6 +3,7 @@ package ru.rsreu.port.servlets.command;
 
 //import ru.rsreu.port.config.AuthConfig;
 //import ru.rsreu.port.constant.RequestParam;
+import ru.rsreu.port.config.AuthConfig;
 import ru.rsreu.port.crutches.crutchesDB;
 import ru.rsreu.port.entity.User;
 import ru.rsreu.port.entity.enums.Roles;
@@ -40,10 +41,10 @@ public class LoginCommand extends FrontCommand {
         try {
             User user = crutchesDB.findUserByLogin(username);
             Roles role = user.getUserRole();
-//            Route startRoute = AuthConfig.getStartPage(role);
+            Route startRoute = AuthConfig.getStartPage(role);
             Cookie userCookie = UserUtil.createUserCookie(user);
             response.addCookie(userCookie);
-//            response.sendRedirect(startRoute.getAbsolute());
+            response.sendRedirect(startRoute.getAbsolute());
         } catch (Exception e) {
             e.printStackTrace();
         }
