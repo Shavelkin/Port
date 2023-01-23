@@ -1,8 +1,9 @@
 package ru.rsreu.port.enums;
 
 public enum Jsp {
-    LOGIN("/jsp/login.jsp");
+    LOGIN("/jsp/login.jsp"),
 
+    NOT_FOUND("/pages/404.jsp");
     private final String route;
 
     Jsp(String route) {
