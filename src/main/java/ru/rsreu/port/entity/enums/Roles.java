@@ -1,6 +1,10 @@
 package ru.rsreu.port.entity.enums;
 
 public enum Roles {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     ADMIN("ADMIN"),
     DISPATCHER("DISPATCHER"),
     CAPTAIN("CAPTAIN");
