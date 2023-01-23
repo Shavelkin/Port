@@ -1,19 +1,30 @@
 package ru.rsreu.port.crutches;
 
 
+import ru.rsreu.port.entity.User;
 import ru.rsreu.port.entity.enums.Roles;
 
-import java.util.Map;
 
 public class crutchesDB {
 
-    private static final Map<String, Roles> PseudoDB = Map.ofEntries(
-            Map.entry("admin", Roles.ADMIN),
-            Map.entry("dispatcher", Roles.DISPATCHER),
-            Map.entry("captain", Roles.CAPTAIN));
+    private static final User userAdmin = new User("Vasya", "admin", "qwerty", Roles.ADMIN);
+    private static final User userDispatcher = new User("Vanya", "dispatcher", "qwerty", Roles.DISPATCHER);
+    private static final User userCaptain = new User("Petya", "captain", "qwerty", Roles.CAPTAIN);
 
-    public static Roles findRolesByLogin(String login){
-        return crutchesDB.PseudoDB.get(login);
+    private static final User[] arrayUser = {userAdmin, userDispatcher, userCaptain};
+
+//    private static final Map<String, User> PseudoDB = (Map<String, User>) Map.ofEntries(
+//            Map.entry("admin", userAdmin),
+//            Map.entry("dispatcher", Roles.DISPATCHER),
+//            Map.entry("captain", Roles.CAPTAIN));
+    public static User findUserByLogin(String login){
+
+        for (int i = 0; i < arrayUser.length; i++) {
+            if (arrayUser[i].getLogin().equals(login)){
+                return arrayUser[i];
+            }
+        }
+        return null;
     }
 
 }
