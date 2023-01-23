@@ -1,6 +1,6 @@
 package ru.rsreu.port.entity;
 
-public class Dispatcher {
+public class Pier {
     private int id;
-    private String name;
+    private Ship ship;
 }
