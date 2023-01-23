@@ -7,9 +7,9 @@ import ru.rsreu.port.entity.enums.Roles;
 
 public class crutchesDB {
 
-    private static final User userAdmin = new User("Vasya", "admin", "qwerty", Roles.ADMIN);
-    private static final User userDispatcher = new User("Vanya", "dispatcher", "qwerty", Roles.DISPATCHER);
-    private static final User userCaptain = new User("Petya", "captain", "qwerty", Roles.CAPTAIN);
+    private static final User userAdmin = new User(0,"Vasya", "admin", "qwerty", Roles.ADMIN);
+    private static final User userDispatcher = new User(1,"Vanya", "dispatcher", "qwerty", Roles.DISPATCHER);
+    private static final User userCaptain = new User(2,"Petya", "captain", "qwerty", Roles.CAPTAIN);
 
     private static final User[] arrayUser = {userAdmin, userDispatcher, userCaptain};
 
