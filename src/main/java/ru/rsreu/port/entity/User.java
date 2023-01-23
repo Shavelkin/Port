@@ -1,7 +1,6 @@
 package ru.rsreu.port.entity;
 
 import ru.rsreu.port.entity.enums.Roles;
-import java.security.Principal;
 
 public class User {
     private Integer userId;

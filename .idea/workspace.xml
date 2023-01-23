@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="429e855c-d436-47dc-9ced-35fe86a65ad5" name="Changes" comment="port">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +57,14 @@
       <updated>1674418778124</updated>
       <workItem from="1674418780847" duration="6000" />
     </task>
+    <task id="LOCAL-00001" summary="port">
+      <created>1674467947579</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674467947579</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -70,6 +77,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="port" />
+    <option name="LAST_COMMIT_MESSAGE" value="port" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Port$Tomcat_9_0.ic" NAME="Tomcat 9.0 Coverage Results" MODIFIED="1674420742695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
