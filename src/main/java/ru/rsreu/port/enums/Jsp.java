@@ -3,12 +3,12 @@ package ru.rsreu.port.enums;
 public enum Jsp {
     LOGIN("/jsp/login.jsp"),
 
-    ADMIN_PROFILE("/jsp/driver/adminProfile.jsp"),
+    ADMIN_PROFILE("/jsp/adminProfile.jsp"),
 
-    DISPATCHER_PROFILE("/jsp/driver/dispatcherProfile.jsp"),
+    DISPATCHER_PROFILE("/jsp/dispatcherProfile.jsp"),
 
-    CAPTAIN_PROFILE("/jsp/driver/captainProfile.jsp"),
-    NOT_FOUND("/pages/404.jsp");
+    CAPTAIN_PROFILE("/jsp/captainProfile.jsp"),
+    NOT_FOUND("/jsp/adminProfile.jsp");
     private final String route;
 
     Jsp(String route) {

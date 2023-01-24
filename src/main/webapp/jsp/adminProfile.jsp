@@ -12,6 +12,8 @@
   <title>Title</title>
 </head>
 <body>
-<p>Приветствие Админу!</p>
+
+  <p>Приветствие Админу!</p>
+
 </body>
 </html>

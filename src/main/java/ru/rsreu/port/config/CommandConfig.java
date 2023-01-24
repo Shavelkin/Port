@@ -4,6 +4,9 @@ package ru.rsreu.port.config;
 import ru.rsreu.port.enums.Route;
 import ru.rsreu.port.servlets.FrontCommand;
 import ru.rsreu.port.servlets.command.*;
+import ru.rsreu.port.servlets.command.admin.AdminProfileCommand;
+import ru.rsreu.port.servlets.command.captain.CaptainProfileCommand;
+import ru.rsreu.port.servlets.command.dispatcher.DispatcherProfileCommand;
 //import ru.rsreu.port.servlets.command.admin.*;
 //import ru.rsreu.port.servlets.command.driver.*;
 //import ru.rsreu.port.servlets.command.moder.*;
@@ -15,7 +18,13 @@ import java.util.Map;
 
 public class CommandConfig {
     private static final Map<Route, FrontCommand> commands = Map.ofEntries(
-            Map.entry(Route.LOGIN, new LoginCommand())
+            Map.entry(Route.LOGIN, new LoginCommand()),
+            Map.entry(Route.ADMIN_PROFILE, new AdminProfileCommand()),
+            Map.entry(Route.CAPTAIN_PROFILE, new CaptainProfileCommand()),
+            Map.entry(Route.DISPATCHER_PROFILE, new DispatcherProfileCommand()),
+            Map.entry(Route.NOT_FOUND, new EmptyCommand())
+    );
+
 //            Map.entry(Route.LOGOUT, new LogoutCommand()),
 //            Map.entry(Route.MARKS, new MarksCommand()),
 //            Map.entry(Route.USER_INFO, new UserInfoCommand()),
@@ -36,7 +45,7 @@ public class CommandConfig {
 //            Map.entry(Route.ACTIVE_REQUESTS, new ActiveRequestsCommand()),
 //            Map.entry(Route.REQUESTS_HISTORY, new RequestsHistoryCommand()),
 //
-//            Map.entry(Route.ADMIN_PROFILE, new AdminProfileCommand()),
+
 //            Map.entry(Route.ADD_USER, new AddUserCommand()),
 //            Map.entry(Route.USER_LIST, new UserListCommand()),
 //            Map.entry(Route.CHANGE_USER, new ChangeUserCommand()),
@@ -50,8 +59,7 @@ public class CommandConfig {
 //
 //            Map.entry(Route.CREATE_MARK, new CreateMarkCommand()),
 //
-//            Map.entry(Route.NOT_FOUND, new EmptyCommand())
-    );
+
 
     private static final List<Route> commandRoutes = Arrays.asList(
             Route.LOGIN
