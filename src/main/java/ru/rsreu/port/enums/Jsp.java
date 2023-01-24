@@ -8,7 +8,7 @@ public enum Jsp {
     DISPATCHER_PROFILE("/jsp/dispatcherProfile.jsp"),
 
     CAPTAIN_PROFILE("/jsp/captainProfile.jsp"),
-    NOT_FOUND("/jsp/adminProfile.jsp");
+    NOT_FOUND("/jsp/404.jsp");
     private final String route;
 
     Jsp(String route) {

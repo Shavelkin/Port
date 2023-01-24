@@ -62,7 +62,7 @@ public class CommandConfig {
 
 
     private static final List<Route> commandRoutes = Arrays.asList(
-            Route.LOGIN
+            Route.LOGIN,
 //            Route.LOGOUT,
 //            Route.CHANGE_USER,
 //            Route.DELETE_USER,
@@ -72,7 +72,10 @@ public class CommandConfig {
 //            Route.COMPLETE_TRIP,
 //            Route.MARKS,
 //            Route.USER_INFO,
-//            Route.NOT_FOUND,
+            Route.NOT_FOUND,
+            Route.ADMIN_PROFILE,
+            Route.CAPTAIN_PROFILE,
+            Route.DISPATCHER_PROFILE
 //            Route.MY_REQUESTS,
 //            Route.DRIVER_PROFILE,
 //            Route.USERS,
