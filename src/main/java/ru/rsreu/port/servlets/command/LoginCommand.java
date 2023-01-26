@@ -26,7 +26,7 @@ public class LoginCommand extends FrontCommand {
     @Override
     public void init(ServletContext servletContext, HttpServletRequest servletRequest, HttpServletResponse servletResponse) {
         super.init(servletContext, servletRequest, servletResponse);
-       // sessionService = ServiceFactory.getSessionService();
+//        sessionService = ServiceFactory.getSessionService();
     }
 
     @Override

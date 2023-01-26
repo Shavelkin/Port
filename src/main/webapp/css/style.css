@@ -1,0 +1,105 @@
+body{
+    background-image: url("https://vsegda-pomnim.com/uploads/posts/2022-04/1649127653_73-vsegda-pomnim-com-p-yuzhno-sakhalinsk-priroda-foto-78.jpg");
+    background-size:cover;
+}
+
+.title{
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+}
+
+.auth-container{
+    width:450px;
+    background-color: #eaf0fb;
+    margin: 10% auto auto auto;
+    text-align: center;
+    box-shadow: 0 -5px 0 #3adbfd;
+    padding-bottom: 20px;
+}
+
+.container{
+    width:450px;
+    background-color: #eaf0fb;
+    margin: 55px auto auto auto;
+    text-align: center;
+    box-shadow: 0 -5px 0 #3adbfd;
+    padding-bottom: 20px;
+}
+.auth-container img{
+    width:120px;
+    height:120px;
+    margin: -60px 0 30px 0;
+    border: 5px solid #3adbfd;
+    border-radius: 50%;
+}
+
+.container img{
+    width:120px;
+    height:120px;
+    margin: -60px 0 0 0;
+    border: 5px solid #3adbfd;
+    border-radius: 50%;
+}
+
+input[type="text"],input[type="password"]{
+    width: 300px;
+    height:50px;
+    font-size: 18px;
+    margin-bottom: 25px;
+    border-radius: 4px;
+    padding-left: 40px;
+}
+.input input:hover{
+    box-shadow: 0 0 6px 3px rgba(58, 219, 253, 0.35);
+}
+.submit {
+    padding: 13px 30px;
+    margin: 5px 0 20px 0;
+    font-size: 15px;
+    color: #fff;
+    background-color: #2ca8c6;
+    border: none;
+    cursor: pointer;
+}
+.submit:hover, .tripSubmit:hover{
+    transition: all 0.5s;
+    background: #fff;
+    color: #2c536c;
+}
+
+.input:hover::before{
+    color: #319ebc;
+    transition: all 0.3s;
+}
+
+.tripSubmit {
+    background-color: #2ca8c6;
+    transition: all 0.3s;
+}
+
+.tripSubmit:hover {
+    background-color: #3adbfd;
+    transition: all 0.3s;
+    color: #fff;
+}
+
+.table {
+    align: center;
+    text-align: center;
+    background: #efefef;
+    width: 100%;
+    margin-bottom: 50px;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+}
+.table th {
+    font-weight: bold;
+    padding: 5px;
+    background: #efefef;
+    border: 1px solid #dddddd;
+}
+.table td {
+    border: 1px solid #dddddd;
+    padding: 5px;
+}
