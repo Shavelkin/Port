@@ -15,10 +15,12 @@
 <div class="auth-container">
     <form name = "LoginForm" method="POST" action = "login">
         <div class="input">
-            <input type="text" name="login" placeholder="Введите логин"><br><br>
-            <input type="password" name="password" placeholder="Введите пароль">
+            <p style="text-align:center">
+                <input type="text" name="login" placeholder="Введите логин"><br><br>
+                <input type="password" name="password" placeholder="Введите пароль">
+            </p>
         </div><br>
-        <button class="submit">Войти</button>
+        <p style="text-align:center"> <button class="submit">Войти</button></p>
     </form>
 
 </div>
