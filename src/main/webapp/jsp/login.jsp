@@ -14,14 +14,13 @@
 </head>
 <body>
 <div class="auth-container">
+    <img src="https://khcsp.ru/images/2020/logo_khcsp_hres@2x.png">
     <form name = "LoginForm" method="POST" action = "login">
-        <div class="input">
-            <p style="text-align:center">
-                <input type="text" name="login" placeholder="Введите логин"><br><br>
+        <div class="input"><br>
+                <input type="text" name="login" placeholder="Введите логин"><br>
                 <input type="password" name="password" placeholder="Введите пароль">
-            </p>
         </div><br>
-        <p style="text-align:center"> <button class="submit">Войти</button></p>
+        <button class="submit">Войти</button>
     </form>
 
 </div>
