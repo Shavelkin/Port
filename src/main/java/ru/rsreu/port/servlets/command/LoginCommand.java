@@ -50,4 +50,3 @@ public class LoginCommand extends FrontCommand {
         }
     }
 }
-

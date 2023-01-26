@@ -3,6 +3,7 @@ package ru.rsreu.port.enums;
 public enum Route {
 
     LOGIN("/login"),
+    LOGOUT("/login"),
 
     ADMIN_PROFILE("/adminProfile"),
 
