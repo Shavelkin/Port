@@ -19,6 +19,7 @@ import java.util.Map;
 public class CommandConfig {
     private static final Map<Route, FrontCommand> commands = Map.ofEntries(
             Map.entry(Route.LOGIN, new LoginCommand()),
+            Map.entry(Route.LOGOUT, new LogoutCommand()),
             Map.entry(Route.ADMIN_PROFILE, new AdminProfileCommand()),
             Map.entry(Route.CAPTAIN_PROFILE, new CaptainProfileCommand()),
             Map.entry(Route.DISPATCHER_PROFILE, new DispatcherProfileCommand()),
@@ -63,40 +64,11 @@ public class CommandConfig {
 
     private static final List<Route> commandRoutes = Arrays.asList(
             Route.LOGIN,
-//            Route.LOGOUT,
-//            Route.CHANGE_USER,
-//            Route.DELETE_USER,
-//            Route.BLOCK_USER,
-//            Route.UNBLOCK_USER,
-//            Route.DELETE_TRIP,
-//            Route.COMPLETE_TRIP,
-//            Route.MARKS,
-//            Route.USER_INFO,
+            Route.LOGOUT,
             Route.NOT_FOUND,
             Route.ADMIN_PROFILE,
             Route.CAPTAIN_PROFILE,
             Route.DISPATCHER_PROFILE
-//            Route.MY_REQUESTS,
-//            Route.DRIVER_PROFILE,
-//            Route.USERS,
-//            Route.CREATE_TRIP,
-//            Route.APPROVE_PASSENGER,
-//            Route.DISAPPROVE_PASSENGER,
-//            Route.TRIP_PARAMETERS,
-//            Route.TRIPS_INFO,
-//            Route.PASSENGER_PROFILE,
-//            Route.CREATE_REQUEST,
-//            Route.RATE_DRIVER,
-//            Route.ACTIVE_REQUESTS,
-//            Route.REQUESTS_HISTORY,
-//            Route.ADMIN_PROFILE,
-//            Route.ADD_USER,
-//            Route.USER_LIST,
-//            Route.MODER_PROFILE,
-//            Route.TRIP_LIST,
-//            Route.PASSENGER_LIST,
-//            Route.REQUEST_LIST,
-//            Route.CREATE_MARK
     );
 
     public static FrontCommand getCommand(String path) {
