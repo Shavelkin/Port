@@ -28,9 +28,11 @@ public class DAOMapper {
     public static User mapAdministrator(ResultSet rs) throws SQLException {
         return new User(
                 rs.getInt("id"),
+
                 rs.getString("login"),
                 rs.getString("password"),
                 rs.getString("name"),
+
                 Roles.ADMIN
         );
     }

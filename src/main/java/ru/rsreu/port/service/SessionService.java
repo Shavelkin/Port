@@ -40,7 +40,7 @@ public class SessionService {
 
     public User createSession(String login, String password) throws Exception {
         User user = userService.getUser(login);
-
+        System.out.println(user.getUserId() + user.getLogin() + user.getPassword() + user.getName());
         if (!user.getPassword().equals(password)) {
             throw new Exception("Not user");
         }

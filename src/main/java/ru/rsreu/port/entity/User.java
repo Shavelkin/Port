@@ -6,16 +6,17 @@ import javax.security.auth.Subject;
 
 public class User implements Principal {
     private Integer userId;
-    private String name;
+
     private String login;
     private String password;
+    private String name;
     private Roles userRole;
 
     public Roles getUserRole() {
         return userRole;
     }
 
-    public User(Integer id, String name, String login, String password, Roles userRole) {
+    public User(Integer id,  String login, String password, String name,Roles userRole) {
         this.userId = id;
         this.name = name;
         this.login = login;
