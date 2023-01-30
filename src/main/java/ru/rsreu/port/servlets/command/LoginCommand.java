@@ -10,8 +10,8 @@ import ru.rsreu.port.entity.User;
 import ru.rsreu.port.entity.enums.Roles;
 import ru.rsreu.port.enums.Jsp;
 import ru.rsreu.port.enums.Route;
-//import ru.rsreu.port.service.ServiceFactory;
-//import ru.rsreu.port.service.SessionService;
+import ru.rsreu.port.service.ServiceFactory;
+import ru.rsreu.port.service.SessionService;
 import ru.rsreu.port.servlets.FrontCommand;
 import ru.rsreu.port.utils.UserUtil;
 import javax.servlet.ServletContext;
@@ -22,12 +22,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class LoginCommand extends FrontCommand {
-//    private SessionService sessionService;
+    private SessionService sessionService;
 
     @Override
     public void init(ServletContext servletContext, HttpServletRequest servletRequest, HttpServletResponse servletResponse) {
         super.init(servletContext, servletRequest, servletResponse);
-//        sessionService = ServiceFactory.getSessionService();
+        sessionService = ServiceFactory.getSessionService();
     }
 
     @Override
@@ -40,7 +40,7 @@ public class LoginCommand extends FrontCommand {
         String username = request.getParameter("login");
         String password = request.getParameter("password");
         try {
-            User user = UserDAOImpl.findUserByLogin(username);
+            User user = sessionService.createSession(username, password);
             Roles role = user.getUserRole();
             Route startRoute = AuthConfig.getStartPage(role);
             Cookie userCookie = UserUtil.createUserCookie(user);

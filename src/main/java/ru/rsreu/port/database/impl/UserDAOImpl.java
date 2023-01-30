@@ -14,6 +14,7 @@ import java.util.List;
 
 
 public class UserDAOImpl extends AbstractDAO implements UserDAO {
+    private static UserDAOImpl instance;
     @Override
     public User findUserByLogin(String login) {
         User user = findAdminByLogin(login);
@@ -48,7 +49,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             ps.setString(1, login);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                return DAOMapper.mapAdministrator(rs);
+                return DAOMapper.mapDispatcher(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -68,5 +69,14 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static UserDAOImpl getInstance() {
+        synchronized (UserDAOImpl.class) {
+            if (instance == null) {
+                instance = new UserDAOImpl();
+            }
+        }
+        return instance;
     }
 }

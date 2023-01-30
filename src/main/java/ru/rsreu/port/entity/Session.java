@@ -27,4 +27,9 @@ public class Session {
     }
 
     public User getUser() { return this.user; }
+
+    public Session setActiveUntil(Date activeUntil) {
+        this.activeUntil = activeUntil;
+        return this;
+    }
 }
