@@ -12,6 +12,12 @@ public class Session {
         this.activeUntil = activeUntil;
     }
 
+    public Session(Integer session_id, User user, Date activeUntil) {
+        this.session_id = session_id;
+        this.user = user;
+        this.activeUntil = activeUntil;
+    }
+
     public Date getActiveUntil() {
         return this.activeUntil;
     }
