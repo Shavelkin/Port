@@ -15,34 +15,55 @@ import java.util.List;
 
 public class UserDAOImpl extends AbstractDAO implements UserDAO {
     @Override
-    public List<User> findAll() {
-        String query = resourcer.getString("user.find.all");
-        List<User> users = new ArrayList<>();
+    public User findUserByLogin(String login) {
+        User user = findAdminByLogin(login);
+        if (user!=null) {
+            return user;
+        }
+        user = findDispatcherByLogin(login);
+        if (user!=null) {
+            return user;
+        }
+        user = findCaptainByLogin(login);
+        return user;
+    }
 
-        try (PreparedStatement st = connection.prepareStatement(query)) {
-            ResultSet resultSet = st.executeQuery();
-
-            while (resultSet.next()) {
-                users.add(DAOMapper.mapUser(resultSet));
+    public User findAdminByLogin(String login) {
+        String query = ProjectResourcer.getInstance().getString("user.find_admin.login");
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, login);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return DAOMapper.mapAdministrator(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return users;
+        return null;
     }
 
-    @Override
-    public User findUserByLogin(String login) {
-        String query = ProjectResourcer.getInstance().getString("user.find.login");
+    public User findDispatcherByLogin(String login) {
+        String query = ProjectResourcer.getInstance().getString("user.find_dispatcher.login");
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, login);
-
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                return DAOMapper.mapUser(rs);
+                return DAOMapper.mapAdministrator(rs);
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    public User findCaptainByLogin(String login) {
+        String query = ProjectResourcer.getInstance().getString("user.find_captain.login");
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, login);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return DAOMapper.mapCaptain(rs);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
