@@ -31,4 +31,21 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
 
         return users;
     }
+
+    @Override
+    public User findUserByLogin(String login) {
+        String query = ProjectResourcer.getInstance().getString("user.find.login");
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, login);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return DAOMapper.mapUser(rs);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
