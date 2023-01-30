@@ -28,7 +28,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         return user;
     }
 
-    public User findAdminByLogin(String login) {
+    private User findAdminByLogin(String login) {
         String query = ProjectResourcer.getInstance().getString("user.find_admin.login");
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, login);
@@ -42,7 +42,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         return null;
     }
 
-    public User findDispatcherByLogin(String login) {
+    private User findDispatcherByLogin(String login) {
         String query = ProjectResourcer.getInstance().getString("user.find_dispatcher.login");
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, login);
@@ -56,7 +56,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         return null;
     }
 
-    public User findCaptainByLogin(String login) {
+    private User findCaptainByLogin(String login) {
         String query = ProjectResourcer.getInstance().getString("user.find_captain.login");
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, login);
