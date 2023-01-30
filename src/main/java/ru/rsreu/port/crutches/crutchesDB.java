@@ -13,10 +13,6 @@ public class crutchesDB {
 
     private static final User[] arrayUser = {userAdmin, userDispatcher, userCaptain};
 
-//    private static final Map<String, User> PseudoDB = (Map<String, User>) Map.ofEntries(
-//            Map.entry("admin", userAdmin),
-//            Map.entry("dispatcher", Roles.DISPATCHER),
-//            Map.entry("captain", Roles.CAPTAIN));
     public static User findUserByLogin(String login){
 
         for (int i = 0; i < arrayUser.length; i++) {
