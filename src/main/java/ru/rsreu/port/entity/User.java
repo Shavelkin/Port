@@ -24,8 +24,10 @@ public class User implements Principal {
     }
 
     public String getLogin() {
-        return login;
+        return this.login;
     }
+
+    public String getPassword() { return this.password; }
 
     public Integer getUserId() {
         return this.userId;

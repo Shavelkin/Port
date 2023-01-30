@@ -14,12 +14,17 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static ru.rsreu.port.constant.GlobalOptions.SESSION_TIME_LIVE;
-
 public class SessionService {
+    public static final long SESSION_TIME_LIVE = 1000 * 60 * 60;
     private static SessionService instance;
     private final SessionDAO sessionDAO;
     private final UserService userService;
+
+    public SessionService(SessionDAO sessionDAO, UserService userService) {
+        this.sessionDAO = sessionDAO;
+        this.userService = userService;
+    }
+
     public static SessionService getInstance() {
         synchronized (SessionService.class) {
             if (instance == null) {
@@ -36,7 +41,7 @@ public class SessionService {
     public User createSession(String login, String password) throws Exception {
         User user = userService.getUser(login);
 
-        if (user.getUserStatus().equals(UserStatus.BLOCKED) || !user.getPassword().equals(password)) {
+        if (!user.getPassword().equals(password)) {
             throw new Exception("Not user");
         }
 
@@ -60,18 +65,18 @@ public class SessionService {
         return sessionDAO.findAll();
     }
 
-    public List<UserListResponseDTO> getAllUserList(User user) {
-        List<Session> sessions = this.getAllSessions();
-        return sessions.stream().filter(session -> !session.getUser().getUserRole().equals(Roles.ADMIN))
-                .map(session -> new UserListResponseDTO(
-                session.getSession_id(),
-                session.getUser(),
-                session.getActiveUntil(),
-                session.getActiveUntil() != null && SessionUtil.checkValid(session) ?
-                SessionStatus.AUTHORIZED : SessionStatus.NOT_AUTHORIZED
-    )).filter(userListResponseDTO -> !userListResponseDTO.getUser().getUserId().equals(user.getUserId()))
-                .collect(Collectors.toList());
-    }
+//    public List<UserListResponseDTO> getAllUserList(User user) {
+//        List<Session> sessions = this.getAllSessions();
+//        return sessions.stream().filter(session -> !session.getUser().getUserRole().equals(Roles.ADMIN))
+//                .map(session -> new UserListResponseDTO(
+//                session.getSession_id(),
+//                session.getUser(),
+//                session.getActiveUntil(),
+//                session.getActiveUntil() != null && SessionUtil.checkValid(session) ?
+//                SessionStatus.AUTHORIZED : SessionStatus.NOT_AUTHORIZED
+//    )).filter(userListResponseDTO -> !userListResponseDTO.getUser().getUserId().equals(user.getUserId()))
+//                .collect(Collectors.toList());
+//    }
     public List<Session> getAllSessionsByUserStatus(String userStatus) {
         return sessionDAO.findAll();
     }
