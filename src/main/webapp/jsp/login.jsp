@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="auth-container">
-    <img src="https://khcsp.ru/images/2020/logo_khcsp_hres@2x.png">
+    <img src="../../images/logo.png">
     <form name = "LoginForm" method="POST" action = "login">
         <div class="input"><br>
                 <input type="text" name="login" placeholder="Введите логин"><br>
