@@ -16,6 +16,8 @@ public class User implements Principal {
         return userRole;
     }
 
+
+
     public User(Integer id,  String login, String password, String name,Roles userRole) {
         this.userId = id;
         this.name = name;
@@ -24,6 +26,9 @@ public class User implements Principal {
         this.userRole = userRole;
     }
 
+    public User(){
+        this.userRole = Roles.UNKNOWN;
+    }
     public String getLogin() {
         return this.login;
     }

@@ -4,6 +4,7 @@ import ru.rsreu.port.database.AbstractDAO;
 import ru.rsreu.port.database.dao.UserDAO;
 import ru.rsreu.port.entity.User;
 import ru.rsreu.port.database.DAOMapper;
+import ru.rsreu.port.entity.enums.Roles;
 import ru.rsreu.port.resourcer.ProjectResourcer;
 
 import java.sql.PreparedStatement;
@@ -17,17 +18,32 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
     private static UserDAOImpl instance;
     @Override
     public User findUserByLogin(String login) {
-        User user = findAdminByLogin(login);
-        if (user!=null) {
-            return user;
+        Roles role = defineRoleUserByLogin(login);
+        switch (role.getRussianName()) {
+            case "Администратор": return findAdminByLogin(login);
+            case "Диспетчер": return findDispatcherByLogin(login);
+            case "Капитан": return findCaptainByLogin(login);
         }
-        user = findDispatcherByLogin(login);
-        if (user!=null) {
-            return user;
-        }
-        user = findCaptainByLogin(login);
-        return user;
+        return new User();
+
+
     }
+
+    private Roles defineRoleUserByLogin(String login) {
+        if(findAdminByLogin(login).getUserRole().equals(Roles.ADMIN)){
+            return Roles.ADMIN;
+        } else if (findDispatcherByLogin(login).getUserRole().equals(Roles.DISPATCHER)){
+            return Roles.DISPATCHER;
+        } else if (findCaptainByLogin(login).getUserRole().equals(Roles.CAPTAIN)){
+            return Roles.CAPTAIN;
+        } else {
+            return Roles.UNKNOWN;
+        }
+
+
+
+    }
+
 
     private User findAdminByLogin(String login) {
         String query = ProjectResourcer.getInstance().getString("user.find_admin.login");
@@ -40,7 +56,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return new User();
     }
 
     private User findDispatcherByLogin(String login) {
@@ -54,7 +70,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return new User();
     }
 
     private User findCaptainByLogin(String login) {
@@ -68,7 +84,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return new User();
     }
 
     public static UserDAOImpl getInstance() {

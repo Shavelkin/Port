@@ -4,7 +4,9 @@ public enum Roles {
 
     ADMIN("ADMIN"),
     DISPATCHER("DISPATCHER"),
-    CAPTAIN("CAPTAIN");
+    CAPTAIN("CAPTAIN"),
+
+    UNKNOWN("UNKNOWN");
 
     private final String  role;
 
@@ -18,7 +20,7 @@ public enum Roles {
             case "DISPATCHER": return "Диспетчер";
             case "CAPTAIN": return "Капитан";
         }
-        return null;
+        return "Инкогнито";
     }
 }
 
