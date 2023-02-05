@@ -47,4 +47,6 @@ public class User implements Principal {
     public String getName() {
         return this.name;
     }
+
+
 }

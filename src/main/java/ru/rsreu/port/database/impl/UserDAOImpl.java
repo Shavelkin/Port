@@ -103,4 +103,6 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         }
         return instance;
     }
+
+
 }
