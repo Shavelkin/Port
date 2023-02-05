@@ -10,7 +10,7 @@ public enum Route {
     DISPATCHER_PROFILE("/dispatcherProfile"),
 
     CAPTAIN_PROFILE("/captainProfile"),
-
+    CREATE_REQUEST("/createRequest"),
     NOT_FOUND("404");
     private final String route;
 

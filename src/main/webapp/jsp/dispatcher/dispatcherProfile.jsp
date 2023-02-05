@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Меню диспетчера</title>
     <style>
-        <%@include file="../css/style.css" %>
+        <%@include file="../../css/style.css" %>
     </style>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css"/>
 </head>
@@ -18,7 +18,7 @@
         </a>
         <div class="container flex flex-wrap flex-col items-center justify-between mx-auto">
             <a class="flex items-center mb-2">
-                <img src="../images/logo.png" class="h-6 mr-3"/>
+                <img src="../../images/logo.png" class="h-6 mr-3"/>
                 <span class="self-center text-xl font-semibold whitespace-nowrap">Сетевая информационная система "Порт"</span>
             </a>
             <ul class="flex item-center space-x-1 p-1 mt-4 border border-gray-100 rounded-lg bg-gray-50">
