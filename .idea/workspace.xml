@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="429e855c-d436-47dc-9ced-35fe86a65ad5" name="Changes" comment="port">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/config/CommandConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/config/CommandConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Jsp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Route.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/CaptainRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/CaptainRequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/ServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/ServiceFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/adminProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/captainProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/captain/captainProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/dispatcherProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/dispatcher/dispatcherProfile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

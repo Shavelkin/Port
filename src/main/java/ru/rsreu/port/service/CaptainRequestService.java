@@ -3,7 +3,9 @@ package ru.rsreu.port.service;
 import ru.rsreu.port.database.DAOFactory;
 import ru.rsreu.port.database.dao.CaptainRequestDAO;
 import ru.rsreu.port.database.dao.UserDAO;
+import ru.rsreu.port.database.impl.CaptainRequestDAOImpl;
 import ru.rsreu.port.entity.CaptainRequest;
+import ru.rsreu.port.entity.enums.CaptainRequestStatus;
 
 public class CaptainRequestService {
     private static CaptainRequestService instance;
@@ -19,4 +21,21 @@ public class CaptainRequestService {
         }
         return instance;
     }
+    public void updateRequest(CaptainRequest request) {
+        captainRequestDAO.update(request);
+    }
+
+    public void createRequest(CaptainRequest request) {
+        captainRequestDAO.save(request);
+    }
+
+//    public void deleteRequest(Integer requestId) {
+//        CaptainRequest request = CaptainRequestDAOImpl.findById(requestId);
+//        if (request.getStatus().equals(CaptainRequestStatus.APPROVED) && !request.getTrip().getTripStatus().equals(TripStatus.COMPLETED)) {
+//            Trip trip = request.getTrip();
+//            tripDAO.update(trip.setFreeSeats(trip.getFreeSeats()+1));
+//        }
+//        requestDAO.delete(requestId);
+//    }
+
 }
