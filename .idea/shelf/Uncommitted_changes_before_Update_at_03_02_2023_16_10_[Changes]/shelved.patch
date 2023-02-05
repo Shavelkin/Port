@@ -1,0 +1,220 @@
+Index: src/main/java/ru/rsreu/port/service/SessionService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ru.rsreu.port.service;\r\n\r\nimport ru.rsreu.port.database.DAOFactory;\r\nimport ru.rsreu.port.database.dao.SessionDAO;\r\nimport ru.rsreu.port.dto.UserListResponseDTO;\r\nimport ru.rsreu.port.entity.Session;\r\nimport ru.rsreu.port.entity.User;\r\nimport ru.rsreu.port.entity.enums.Roles;\r\nimport ru.rsreu.port.entity.enums.SessionStatus;\r\nimport ru.rsreu.port.utils.SessionUtil;\r\n\r\nimport java.sql.Date;\r\nimport java.util.List;\r\nimport java.util.Optional;\r\nimport java.util.stream.Collectors;\r\n\r\npublic class SessionService {\r\n    public static final long SESSION_TIME_LIVE = 1000 * 60 * 60;\r\n    private static SessionService instance;\r\n    private final SessionDAO sessionDAO;\r\n    private final UserService userService;\r\n\r\n    public SessionService(SessionDAO sessionDAO, UserService userService) {\r\n        this.sessionDAO = sessionDAO;\r\n        this.userService = userService;\r\n    }\r\n\r\n    public static SessionService getInstance() {\r\n        synchronized (SessionService.class) {\r\n            if (instance == null) {\r\n                instance = new SessionService(DAOFactory.getSessionDAO(), ServiceFactory.getUserService());\r\n            }\r\n        }\r\n        return instance;\r\n    }\r\n\r\n    public Optional<Session> getSession(Integer userId) {\r\n        return sessionDAO.findByUserId(userId);\r\n    }\r\n\r\n    public User createSession(String login, String password) throws Exception {\r\n        User user = userService.getUser(login);\r\n        System.out.println(user.getUserId() + user.getLogin() + user.getPassword() + user.getName());\r\n        if (!user.getPassword().equals(password)) {\r\n            throw new Exception(\"Not user\");\r\n        }\r\n\r\n        Date activeUntil = new Date(System.currentTimeMillis() + SESSION_TIME_LIVE);\r\n        Optional<Session> optionalSession = sessionDAO.findByUserId(user.getUserId());\r\n        Session session = optionalSession.isPresent() ?\r\n                optionalSession.get().setActiveUntil(activeUntil) :\r\n                new Session(user, activeUntil);\r\n//                optionalSession.orElseGet(() -> new Session(user, activeUntil));\r\n\r\n        if (!optionalSession.isPresent()) {\r\n            sessionDAO.save(session);\r\n        } else {\r\n            sessionDAO.update(session);\r\n        }\r\n\r\n        return user;\r\n    }\r\n\r\n    public List<Session> getAllSessions() {\r\n        return sessionDAO.findAll();\r\n    }\r\n\r\n//    public List<UserListResponseDTO> getAllUserList(User user) {\r\n//        List<Session> sessions = this.getAllSessions();\r\n//        return sessions.stream().filter(session -> !session.getUser().getUserRole().equals(Roles.ADMIN))\r\n//                .map(session -> new UserListResponseDTO(\r\n//                session.getSession_id(),\r\n//                session.getUser(),\r\n//                session.getActiveUntil(),\r\n//                session.getActiveUntil() != null && SessionUtil.checkValid(session) ?\r\n//                SessionStatus.AUTHORIZED : SessionStatus.NOT_AUTHORIZED\r\n//    )).filter(userListResponseDTO -> !userListResponseDTO.getUser().getUserId().equals(user.getUserId()))\r\n//                .collect(Collectors.toList());\r\n//    }\r\n    public List<Session> getAllSessionsByUserStatus(String userStatus) {\r\n        return sessionDAO.findAll();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/ru/rsreu/port/service/SessionService.java b/src/main/java/ru/rsreu/port/service/SessionService.java
+--- a/src/main/java/ru/rsreu/port/service/SessionService.java	(revision 78dab1120921b11085efada28eaa04cec8777538)
++++ b/src/main/java/ru/rsreu/port/service/SessionService.java	(date 1675116073909)
+@@ -40,7 +40,7 @@
+ 
+     public User createSession(String login, String password) throws Exception {
+         User user = userService.getUser(login);
+-        System.out.println(user.getUserId() + user.getLogin() + user.getPassword() + user.getName());
++//        System.out.println(user.getUserId() + user.getLogin() + user.getPassword() + user.getName());
+         if (!user.getPassword().equals(password)) {
+             throw new Exception("Not user");
+         }
+Index: src/main/webapp/css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>body{\r\n    background-image: url(\"https://vsegda-pomnim.com/uploads/posts/2022-04/1649127653_73-vsegda-pomnim-com-p-yuzhno-sakhalinsk-priroda-foto-78.jpg\");\r\n    background-size:cover;\r\n}\r\n\r\n/*.title{\r\n    text-align: center;\r\n    font-family: \"Montserrat\", sans-serif;\r\n    font-size: 30px;\r\n}*/\r\n\r\n.auth-container{\r\n    width:450px;\r\n    background-color: #F0F8FF;\r\n    margin: 8% auto auto auto;\r\n    text-align: center;\r\n    box-shadow: 0 -5px 0 #1E90FF;\r\n    padding-bottom: 20px;\r\n}\r\n\r\n.container{\r\n    width:450px;\r\n    background-color: #F0F8FF;\r\n    margin: 55px auto auto auto;\r\n    text-align: center;\r\n    box-shadow: 0 -5px 0 #1E90FF;\r\n    padding-bottom: 20px;\r\n}\r\n.auth-container img{\r\n    width:150px;\r\n    height:172px;\r\n    margin: -80px 0 30px 0;\r\n    /*border: 5px solid #3adbfd;*/\r\n    /*border-radius: 50%;*/\r\n}\r\n\r\n.container img{\r\n    width:120px;\r\n    height:120px;\r\n    margin: -60px 0 0 0;\r\n    /*border: 5px solid #3adbfd;\r\n    border-radius: 50%;*/\r\n}\r\n\r\ninput[type=\"text\"],input[type=\"password\"]{\r\n    width: 250px;\r\n    height:40px;\r\n    font-size: 18px;\r\n    margin-bottom: 25px;\r\n    border-radius: 4px;\r\n    padding-left: 40px;\r\n}\r\n.input input:hover{\r\n    box-shadow: 0 0 6px 3px rgba(0, 191, 255, 0.35);\r\n}\r\n\r\n.submit {\r\n    padding: 13px 30px;\r\n    margin: 5px 0 20px 0;\r\n    font-size: 15px;\r\n    color: #fff;\r\n    background-color: #1E90FF;\r\n    border: none;\r\n    cursor: pointer;\r\n}\r\n.submit:hover, .tripSubmit:hover{\r\n    transition: all 0.3s;\r\n    background: #fff;\r\n    color: #2c536c;\r\n}\r\n\r\n.input:hover::before{\r\n    color: #319ebc;\r\n    transition: all 0.3s;\r\n}\r\n\r\n/*.tripSubmit {\r\n    background-color: #2ca8c6;\r\n    transition: all 0.3s;\r\n}\r\n\r\n.tripSubmit:hover {\r\n    background-color: #3adbfd;\r\n    transition: all 0.3s;\r\n    color: #fff;\r\n}\r\n\r\n.table {\r\n    align: center;\r\n    text-align: center;\r\n    background: #efefef;\r\n    width: 100%;\r\n    margin-bottom: 50px;\r\n    border: 1px solid #dddddd;\r\n    border-collapse: collapse;\r\n}\r\n.table th {\r\n    font-weight: bold;\r\n    padding: 5px;\r\n    background: #efefef;\r\n    border: 1px solid #dddddd;\r\n}\r\n.table td {\r\n    border: 1px solid #dddddd;\r\n    padding: 5px;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/css/style.css b/src/main/webapp/css/style.css
+--- a/src/main/webapp/css/style.css	(revision 78dab1120921b11085efada28eaa04cec8777538)
++++ b/src/main/webapp/css/style.css	(date 1675278615808)
+@@ -74,7 +74,7 @@
+     transition: all 0.3s;
+ }
+ 
+-/*.tripSubmit {
++.tripSubmit {
+     background-color: #2ca8c6;
+     transition: all 0.3s;
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"429e855c-d436-47dc-9ced-35fe86a65ad5\" name=\"Changes\" comment=\"port\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/DAOMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/DAOMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/User.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/User.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/SessionService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/SessionService.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$\">\r\n          <activation />\r\n        </task>\r\n        <projects_view />\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"LogFilters\">\r\n    <option name=\"FILTER_ERRORS\" value=\"false\" />\r\n    <option name=\"FILTER_WARNINGS\" value=\"false\" />\r\n    <option name=\"FILTER_INFO\" value=\"true\" />\r\n    <option name=\"FILTER_DEBUG\" value=\"true\" />\r\n    <option name=\"CUSTOM_FILTER\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2KhFBUoSl5ec9BMElo7syE5aMof\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"last_opened_file_path\": \"D:/Project/Port/src/main/java/ru/rsreu/port\",\r\n    \"list.type.of.created.stylesheet\": \"CSS\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Modules\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Project\\Port\\src\\main\\java\\ru\\rsreu\\port\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"ru.rsreu.port.database.impl\" />\r\n      <recent name=\"ru.rsreu.port.utils\" />\r\n      <recent name=\"ru.rsreu.port.database.dao\" />\r\n      <recent name=\"ru.rsreu.port.entity\" />\r\n      <recent name=\"ru.rsreu.port.dto\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Tomcat Server.Tomcat 9.0.711\">\r\n    <configuration name=\"Port\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" nameIsGenerated=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list />\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Tomcat 9.0.711\" type=\"#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory\" factoryName=\"Local\" APPLICATION_SERVER_NAME=\"Tomcat 9.0.71\" ALTERNATIVE_JRE_ENABLED=\"false\" nameIsGenerated=\"true\">\r\n      <option name=\"OPEN_IN_BROWSER_URL\" value=\"http://localhost:8080/port/login\" />\r\n      <option name=\"UPDATING_POLICY\" value=\"restart-server\" />\r\n      <deployment>\r\n        <artifact name=\"Gradle : ru.rsreu.port : Port-1.0-SNAPSHOT.war\">\r\n          <settings>\r\n            <option name=\"CONTEXT_PATH\" value=\"/\" />\r\n          </settings>\r\n        </artifact>\r\n      </deployment>\r\n      <server-settings>\r\n        <option name=\"BASE_DIRECTORY_NAME\" value=\"1554d09a-b4a3-474f-921d-46327ce704a4\" />\r\n      </server-settings>\r\n      <predefined_log_file enabled=\"true\" id=\"Tomcat\" />\r\n      <predefined_log_file enabled=\"true\" id=\"Tomcat Catalina\" />\r\n      <predefined_log_file id=\"Tomcat Manager\" />\r\n      <predefined_log_file id=\"Tomcat Host Manager\" />\r\n      <predefined_log_file id=\"Tomcat Localhost Access\" />\r\n      <RunnerSettings RunnerId=\"Debug\">\r\n        <option name=\"DEBUG_PORT\" value=\"61493\" />\r\n      </RunnerSettings>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Cover\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Debug\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Profile\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Run\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n        <option name=\"BuildArtifacts\" enabled=\"true\">\r\n          <artifact name=\"Gradle : ru.rsreu.port : Port-1.0-SNAPSHOT.war\" />\r\n        </option>\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Gradle.Port\" />\r\n      <item itemvalue=\"Tomcat Server.Tomcat 9.0.711\" />\r\n    </list>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"429e855c-d436-47dc-9ced-35fe86a65ad5\" name=\"Changes\" comment=\"\" />\r\n      <created>1674418778124</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1674418778124</updated>\r\n      <workItem from=\"1674418780847\" duration=\"6000\" />\r\n      <workItem from=\"1674469859790\" duration=\"7256000\" />\r\n      <workItem from=\"1674552413925\" duration=\"3873000\" />\r\n      <workItem from=\"1674906977269\" duration=\"2264000\" />\r\n      <workItem from=\"1674990522171\" duration=\"320000\" />\r\n      <workItem from=\"1674997172964\" duration=\"11639000\" />\r\n      <workItem from=\"1675102433895\" duration=\"1307000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"port\">\r\n      <created>1674467947579</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674467947579</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"port\">\r\n      <created>1674468101487</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674468101488</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"port\">\r\n      <created>1674484465153</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674484465153</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"port\">\r\n      <created>1674485650080</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674485650080</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"port\">\r\n      <created>1674485718911</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674485718911</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"port\">\r\n      <created>1674491170208</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674491170208</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"port\">\r\n      <created>1674496547686</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674496547686</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"port\">\r\n      <created>1674555511889</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674555511889</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"port\">\r\n      <created>1674757253449</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674757253449</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"port\">\r\n      <created>1674758248993</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674758248993</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"port\">\r\n      <created>1674999874099</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1674999874099</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"port\">\r\n      <created>1675090373744</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675090373745</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"port\">\r\n      <created>1675096265436</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675096265436</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"port\">\r\n      <created>1675096513973</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675096513973</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"port\">\r\n      <created>1675099067597</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675099067598</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"16\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"port\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"port\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.Exception\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/Port$Tomcat_9_0.ic\" NAME=\"Tomcat 9.0 Coverage Results\" MODIFIED=\"1674420742695\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 78dab1120921b11085efada28eaa04cec8777538)
++++ b/.idea/workspace.xml	(date 1675429806782)
+@@ -6,9 +6,9 @@
+   <component name="ChangeListManager">
+     <list default="true" id="429e855c-d436-47dc-9ced-35fe86a65ad5" name="Changes" comment="port">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/DAOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/DAOMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/User.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/SessionService.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/adminProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/adminProfile.jsp" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -60,21 +60,18 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "last_opened_file_path": "D:/Project/Port/src/main/java/ru/rsreu/port",
+-    "list.type.of.created.stylesheet": "CSS",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "project.structure.last.edited": "Modules",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.0"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/Project/Port/src/main/java/ru/rsreu/port&quot;,
++    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="D:\Project\Port\src\main\java\ru\rsreu\port" />
+@@ -107,7 +104,7 @@
+       <DebugAllEnabled>false</DebugAllEnabled>
+       <method v="2" />
+     </configuration>
+-    <configuration name="Tomcat 9.0.711" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.71" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
++    <configuration name="Tomcat 9.0.711" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/port/login" />
+       <option name="UPDATING_POLICY" value="restart-server" />
+       <deployment>
+@@ -214,7 +211,8 @@
+       <workItem from="1674906977269" duration="2264000" />
+       <workItem from="1674990522171" duration="320000" />
+       <workItem from="1674997172964" duration="11639000" />
+-      <workItem from="1675102433895" duration="1307000" />
++      <workItem from="1675102433895" duration="4285000" />
++      <workItem from="1675171297261" duration="3833000" />
+     </task>
+     <task id="LOCAL-00001" summary="port">
+       <created>1674467947579</created>
+@@ -321,7 +319,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1675099067598</updated>
+     </task>
+-    <option name="localTasksCounter" value="16" />
++    <task id="LOCAL-00016" summary="port">
++      <created>1675103766715</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1675103766715</updated>
++    </task>
++    <task id="LOCAL-00017" summary="port">
++      <created>1675106712641</created>
++      <option name="number" value="00017" />
++      <option name="presentableId" value="LOCAL-00017" />
++      <option name="project" value="LOCAL" />
++      <updated>1675106712641</updated>
++    </task>
++    <option name="localTasksCounter" value="18" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -341,16 +353,6 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="port" />
+     <option name="LAST_COMMIT_MESSAGE" value="port" />
+-  </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <breakpoint enabled="true" type="java-exception">
+-          <properties class="java.lang.Exception" package="java.lang" />
+-          <option name="timeStamp" value="1" />
+-        </breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/Port$Tomcat_9_0.ic" NAME="Tomcat 9.0 Coverage Results" MODIFIED="1674420742695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+Index: src/main/webapp/jsp/adminProfile.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%--\r\n  Created by IntelliJ IDEA.\r\n  User: shave\r\n  Date: 23.01.2023\r\n  Time: 19:45\r\n  To change this template use File | Settings | File Templates.\r\n--%>\r\n<%@ page contentType=\"text/html;charset=UTF-8\" language=\"java\" %>\r\n<html>\r\n<<p>&nbsp;</p>\r\n<head>\r\n  <title>Title</title>\r\n</head>\r\n<body>\r\n\r\n  <p>Приветствие Админу!</p>\r\n  <li>\r\n    <a href=\"/port/login\" class=\"block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700\" aria-current=\"page\">Выйти из системы</a>\r\n  </li>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/jsp/adminProfile.jsp b/src/main/webapp/jsp/adminProfile.jsp
+--- a/src/main/webapp/jsp/adminProfile.jsp	(revision 78dab1120921b11085efada28eaa04cec8777538)
++++ b/src/main/webapp/jsp/adminProfile.jsp	(date 1675428987172)
+@@ -1,21 +1,41 @@
+-<%--
+-  Created by IntelliJ IDEA.
+-  User: shave
+-  Date: 23.01.2023
+-  Time: 19:45
+-  To change this template use File | Settings | File Templates.
+---%>
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<!DOCTYPE html>
+ <html>
+-<<p>&nbsp;</p>
+ <head>
+-  <title>Title</title>
++  <meta charset="UTF-8">
++  <title>Меню администратора</title>
++  <style>
++    <%@include file="../css/style.css" %>
++  </style>
++  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css"/>
+ </head>
+ <body>
+-
+-  <p>Приветствие Админу!</p>
+-  <li>
+-    <a href="/port/login" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700" aria-current="page">Выйти из системы</a>
+-  </li>
++<div>
++  <nav class="bg-white border-gray-200 px-2 py-2.5 rounded">
++    <div class="container flex flex-wrap flex-col items-center justify-between mx-auto">
++      <a class="flex items-center mb-2">
++        <img src="../../images/logo_header.jpg" class="h-6 mr-3"/>
++        <span class="self-center text-xl font-semibold whitespace-nowrap">Сетевая информационная система "Порт"</span>
++      </a>
++      <ul class="flex item-center space-x-1 p-1 mt-4 border border-gray-100 rounded-lg bg-gray-50">
++        <li>
++          <a href="/nis/addUser"
++             class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Добавление
++            пользователя</a>
++        </li>
++        <li>
++          <a href="/nis/userList"
++             class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Просмотр
++            списка пользователей </a>
++        </li>
++        <li>
++          <a href="/nis/login"
++             class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700"
++             aria-current="page">Выйти из системы</a>
++        </li>
++      </ul>
++    </div>
++  </nav>
++</div>
+ </body>
+-</html>
++</html>
+\ No newline at end of file
