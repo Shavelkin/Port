@@ -14,7 +14,7 @@
   <nav class="bg-white border-gray-200 px-2 py-2.5 rounded">
     <div class="container flex flex-wrap flex-col items-center justify-between mx-auto">
       <a class="flex items-center mb-2">
-        <img src="../../images/logo.png" class="h-6 mr-3"/>
+        <img src="../images/logo.png" class="h-6 mr-3"/>
         <span class="self-center text-xl font-semibold whitespace-nowrap">Сетевая информационная система "Порт"</span>
       </a>
       <ul class="flex item-center space-x-1 p-1 mt-4 border border-gray-100 rounded-lg bg-gray-50">

@@ -50,7 +50,7 @@ public class SessionService {
         Session session = optionalSession.isPresent() ?
                 optionalSession.get().setActiveUntil(activeUntil) :
                 new Session(user, activeUntil);
-//                optionalSession.orElseGet(() -> new Session(user, activeUntil));
+                optionalSession.orElseGet(() -> new Session(user, activeUntil));
 
         if (!optionalSession.isPresent()) {
             sessionDAO.save(session);
