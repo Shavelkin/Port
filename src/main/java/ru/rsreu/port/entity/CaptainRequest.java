@@ -30,6 +30,9 @@ public class CaptainRequest {
     public Integer getCaptainId() {
         return captainId;
     }
+    public void setCaptainId(Integer captainId) {
+        this.captainId = captainId;
+    }
 
     public Integer getPierId() {
         return pierId;
