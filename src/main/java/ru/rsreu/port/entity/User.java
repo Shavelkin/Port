@@ -27,6 +27,10 @@ public class User implements Principal {
     }
 
     public User(){
+        this.userId = 0;
+        this.name = "incognito";
+        this.login = "incognito";
+        this.password = "incognito";
         this.userRole = Roles.UNKNOWN;
     }
     public String getLogin() {
@@ -43,4 +47,6 @@ public class User implements Principal {
     public String getName() {
         return this.name;
     }
+
+
 }

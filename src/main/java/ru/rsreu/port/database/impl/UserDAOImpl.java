@@ -18,14 +18,22 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
     private static UserDAOImpl instance;
     @Override
     public User findUserByLogin(String login) {
-        Roles role = defineRoleUserByLogin(login);
-        switch (role.getRussianName()) {
-            case "Администратор": return findAdminByLogin(login);
-            case "Диспетчер": return findDispatcherByLogin(login);
-            case "Капитан": return findCaptainByLogin(login);
-        }
-        return new User();
+//        Roles role = defineRoleUserByLogin(login);
+//        switch (role.getRussianName()) {
+//            case "Администратор": return findAdminByLogin(login);
+//            case "Диспетчер": return findDispatcherByLogin(login);
+//            case "Капитан": return findCaptainByLogin(login);
+//        }
 
+        if(findAdminByLogin(login).getUserRole().equals(Roles.ADMIN)){
+            return findAdminByLogin(login);
+        } else if (findDispatcherByLogin(login).getUserRole().equals(Roles.DISPATCHER)){
+            return findDispatcherByLogin(login);
+        } else if (findCaptainByLogin(login).getUserRole().equals(Roles.CAPTAIN)){
+            return findCaptainByLogin(login);
+        } else {
+            return new User();
+        }
 
     }
 
@@ -95,4 +103,6 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         }
         return instance;
     }
+
+
 }
