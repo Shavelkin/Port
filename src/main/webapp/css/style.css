@@ -3,11 +3,11 @@ body{
     background-size:cover;
 }
 
-/*.title{
+.title{
     text-align: center;
     font-family: "Montserrat", sans-serif;
     font-size: 30px;
-}*/
+}
 
 .auth-container{
     width:450px;
@@ -36,8 +36,8 @@ body{
 
 .container img{
     width:120px;
-    height:120px;
-    margin: -60px 0 0 0;
+    height:138px;
+    margin: -64px 0 0 0;
     /*border: 5px solid #3adbfd;
     border-radius: 50%;*/
 }
@@ -74,7 +74,7 @@ input[type="text"],input[type="password"]{
     transition: all 0.3s;
 }
 
-/*.tripSubmit {
+.tripSubmit {
     background-color: #2ca8c6;
     transition: all 0.3s;
 }
