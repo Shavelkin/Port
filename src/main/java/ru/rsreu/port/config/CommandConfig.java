@@ -7,6 +7,7 @@ import ru.rsreu.port.servlets.command.*;
 import ru.rsreu.port.servlets.command.admin.AdminProfileCommand;
 import ru.rsreu.port.servlets.command.captain.CaptainProfileCommand;
 import ru.rsreu.port.servlets.command.dispatcher.DispatcherProfileCommand;
+import ru.rsreu.port.servlets.command.captain.CreateRequestCommand;
 //import ru.rsreu.port.servlets.command.admin.*;
 //import ru.rsreu.port.servlets.command.driver.*;
 //import ru.rsreu.port.servlets.command.moder.*;
@@ -23,7 +24,7 @@ public class CommandConfig {
             Map.entry(Route.ADMIN_PROFILE, new AdminProfileCommand()),
             Map.entry(Route.CAPTAIN_PROFILE, new CaptainProfileCommand()),
             Map.entry(Route.DISPATCHER_PROFILE, new DispatcherProfileCommand()),
-            Map.entry(Route.CREATE_REQUEST, new CaptainProfileCommand()),
+            Map.entry(Route.CREATE_REQUEST, new CreateRequestCommand()),
             Map.entry(Route.NOT_FOUND, new EmptyCommand())
     );
 
