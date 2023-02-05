@@ -27,27 +27,46 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
 
     @Override
     public void save(CaptainRequest request) {
-//        String query = resourcer.getString("request.save");
-//
-//        try (PreparedStatement statement = connection.prepareStatement(query)) {
-//            statement.setInt(1, request.getPassenger().getUserId());
-//            statement.setInt(2, request.getTrip().getTripId());
-//            statement.setString(3, request.getRequestStatus().toString());
-//
-//            statement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        String query = resourcer.getString("request.save");
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, request.getCaptainId());
+            statement.setInt(2, request.getPierId());
+            statement.setString(3, request.getDatetime().toString());
+            statement.setString(4, request.getStatus().toString());
+            statement.setString(5, request.getType().toString());
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void delete(Integer requestId) {
+        String query = resourcer.getString("request.delete");
 
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+            st.setInt(1, requestId);
+
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void update(CaptainRequest request) {
+        String query = resourcer.getString("request.update");
 
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, request.getStatus().toString());
+            statement.setInt(2, request.getId());
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

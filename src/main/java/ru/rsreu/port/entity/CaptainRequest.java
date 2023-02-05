@@ -22,4 +22,28 @@ public class CaptainRequest {
         this.status = status;
         this.type = type;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Integer getCaptainId() {
+        return captainId;
+    }
+
+    public Integer getPierId() {
+        return pierId;
+    }
+
+    public Date getDatetime() {
+        return datetime;
+    }
+
+    public CaptainRequestStatus getStatus() {
+        return status;
+    }
+
+    public Type getType() {
+        return type;
+    }
 }
