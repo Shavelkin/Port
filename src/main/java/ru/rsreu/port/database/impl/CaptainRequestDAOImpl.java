@@ -31,10 +31,9 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
         String query = resourcer.getString("request.save");
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, request.getCaptainId());
-            statement.setInt(2, request.getPierId());
-            statement.setString(3, request.getDatetime().toString());
-            statement.setString(4, request.getStatus().toString());
-            statement.setString(5, request.getType().toString());
+            statement.setString(2, request.getDatetime().toString());
+            statement.setString(3, request.getStatus().toString());
+            statement.setString(4, request.getType().toString());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

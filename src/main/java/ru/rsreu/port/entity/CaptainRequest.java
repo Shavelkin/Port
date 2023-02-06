@@ -10,11 +10,11 @@ public class CaptainRequest {
     private Integer captainId;
 
     private Integer pierId;
-    private Date datetime;
+    private String datetime;
     private CaptainRequestStatus status;
     private Type type;
 
-    public CaptainRequest(Integer id, Integer captainId, Integer pierId, Date datetime, CaptainRequestStatus status, Type type) {
+    public CaptainRequest(Integer id, Integer captainId, Integer pierId, String datetime, CaptainRequestStatus status, Type type) {
         this.id = id;
         this.captainId = captainId;
         this.pierId = pierId;
@@ -38,7 +38,7 @@ public class CaptainRequest {
         return pierId;
     }
 
-    public Date getDatetime() {
+    public String getDatetime() {
         return datetime;
     }
 

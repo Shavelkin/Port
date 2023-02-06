@@ -1,6 +1,7 @@
 package ru.rsreu.port.servlets.command.captain;
 
 import ru.rsreu.port.config.AuthConfig;
+import ru.rsreu.port.entity.enums.Roles;
 import ru.rsreu.port.entity.enums.Type;
 import ru.rsreu.port.service.CaptainRequestService;
 import ru.rsreu.port.service.ServiceFactory;
@@ -37,7 +38,8 @@ public class CreateRequestCommand extends FrontCommand {
         try {
             System.out.println("COMMAND SEND");
             CaptainRequest captainRequest = mapCaptainRequestFromRequest();
-            User user = UserUtil.getFromRequest(request).get();
+//            User user = UserUtil.getFromRequest(request).get();
+            User user = new User(1, "cap1", "qwerty1", "Petya", Roles.CAPTAIN);
             captainRequest.setCaptainId(user.getUserId());
             captainRequestService.createRequest(captainRequest);
             response.sendRedirect(AuthConfig.getStartPage(user.getUserRole()).getAbsolute());
@@ -51,8 +53,8 @@ public class CreateRequestCommand extends FrontCommand {
         return new CaptainRequest(
                 0,
                 null,
-                null,
-                DateUtil.parse(DateUtil.getCurrentDate()),
+                1,
+                "24-JAN-12",
                 CaptainRequestStatus.WAITING,
                 Type.ENTERING
         );

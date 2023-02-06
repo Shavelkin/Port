@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateUtil {
-    private static final SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat dateFormat1 = new SimpleDateFormat("MM-dd-yyyy");
 
     public static java.sql.Date parse(String date) {
         Date result;
@@ -20,6 +20,7 @@ public class DateUtil {
     }
 
     public static String  getCurrentDate() {
-        return dateFormat1.format(new Date());
+        return "24-JAN-12 05.57.12.002648 AM";
+//        return dateFormat1.format(new Date());
     }
 }
