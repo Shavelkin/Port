@@ -20,6 +20,7 @@
             <ul class="flex item-center space-x-1 p-1 mt-4 border border-gray-100 rounded-lg bg-gray-50">
                 <form name = "CreateRequestForm" method="POST" action = "createRequest">
                     <p><select name="typeCaptainRequest">
+
                         <option value="0">Вход с лоцманом</option>
                         <option value="1">Вход без лоцмана</option>
                         <option value="2">Выход с лоцманом</option>
