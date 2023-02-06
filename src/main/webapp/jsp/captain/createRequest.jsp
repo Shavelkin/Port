@@ -18,19 +18,16 @@
                 <span class="self-center text-xl font-semibold whitespace-nowrap">Сетевая информационная система "Порт"</span>
             </a>
             <ul class="flex item-center space-x-1 p-1 mt-4 border border-gray-100 rounded-lg bg-gray-50">
-                <li>
-                    <a
-                       class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">ЗАЯВКА СОЗДАНА. ПРУЦ ПИДОР.</a>
-                </li>
-                <li>
-                    <a href="/port/captainProfile"
-                       class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Вернуться в меню</a>
-                </li>
-                <li>
-                    <a href="/port/login"
-                       class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700"
-                       aria-current="page">Выйти из системы</a>
-                </li>
+                <form name = "CreateRequestForm" method="POST" action = "createRequest">
+                    <p><select name="typeCaptainRequest">
+                        <option value="0">Вход с лоцманом</option>
+                        <option value="1">Вход без лоцмана</option>
+                        <option value="2">Выход с лоцманом</option>
+                        <option value="3">Выход без лоцмана</option>
+                    </select></p>
+
+                    <button class="submit" type="submit" name="submit">Отправить заявку</button>
+                </form>
             </ul>
         </div>
     </nav>

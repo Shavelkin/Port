@@ -27,8 +27,8 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
 
     @Override
     public void save(CaptainRequest request) {
+        System.out.println("METHOD SAVE");
         String query = resourcer.getString("request.save");
-
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, request.getCaptainId());
             statement.setInt(2, request.getPierId());
@@ -57,16 +57,16 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
 
     @Override
     public void update(CaptainRequest request) {
-        String query = resourcer.getString("request.update");
-
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, request.getStatus().toString());
-            statement.setInt(2, request.getId());
-
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        String query = resourcer.getString("request.update");
+//
+//        try (PreparedStatement statement = connection.prepareStatement(query)) {
+//            statement.setString(1, request.getStatus().toString());
+//            statement.setInt(2, request.getId());
+//
+//            statement.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
