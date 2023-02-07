@@ -10,4 +10,15 @@ public class UserListResponseDTO {
     private User user;
     private Date activeUntil;
     private SessionStatus status;
+
+    public UserListResponseDTO(Integer session_id, User user, Date activeUntil, SessionStatus status) {
+        this.session_id = session_id;
+        this.user = user;
+        this.activeUntil = activeUntil;
+        this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }

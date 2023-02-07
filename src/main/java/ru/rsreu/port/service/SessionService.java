@@ -65,18 +65,19 @@ public class SessionService {
         return sessionDAO.findAll();
     }
 
-//    public List<UserListResponseDTO> getAllUserList(User user) {
-//        List<Session> sessions = this.getAllSessions();
-//        return sessions.stream().filter(session -> !session.getUser().getUserRole().equals(Roles.ADMIN))
-//                .map(session -> new UserListResponseDTO(
-//                session.getSession_id(),
-//                session.getUser(),
-//                session.getActiveUntil(),
-//                session.getActiveUntil() != null && SessionUtil.checkValid(session) ?
-//                SessionStatus.AUTHORIZED : SessionStatus.NOT_AUTHORIZED
-//    )).filter(userListResponseDTO -> !userListResponseDTO.getUser().getUserId().equals(user.getUserId()))
-//                .collect(Collectors.toList());
-//    }
+    public List<UserListResponseDTO> getAllUserList(User user) {
+        List<Session> sessions = this.getAllSessions();
+        return sessions.stream().filter(session -> !session.getUser().getUserRole().equals(Roles.ADMIN))
+                .map(session -> new UserListResponseDTO(
+                session.getSession_id(),
+                session.getUser(),
+                session.getActiveUntil(),
+                session.getActiveUntil() != null && SessionUtil.checkValid(session) ?
+                SessionStatus.AUTHORIZED : SessionStatus.NOT_AUTHORIZED
+    )).filter(userListResponseDTO -> !userListResponseDTO.getUser().getUserId().equals(user.getUserId()))
+                .collect(Collectors.toList());
+    }
+
     public List<Session> getAllSessionsByUserStatus(String userStatus) {
         return sessionDAO.findAll();
     }

@@ -1,6 +1,6 @@
 package ru.rsreu.port.servlets;
 
-import ru.rsreu.port.config.CommandConfig;
+import ru.rsreu.port.database.config.CommandConfig;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

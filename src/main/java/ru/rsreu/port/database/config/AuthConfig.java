@@ -1,4 +1,4 @@
-package ru.rsreu.port.config;
+package ru.rsreu.port.database.config;
 
 import ru.rsreu.port.entity.enums.Roles;
 import ru.rsreu.port.enums.Route;

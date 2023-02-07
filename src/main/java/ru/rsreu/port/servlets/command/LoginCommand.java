@@ -3,9 +3,7 @@ package ru.rsreu.port.servlets.command;
 
 //import ru.rsreu.port.config.AuthConfig;
 //import ru.rsreu.port.constant.RequestParam;
-import ru.rsreu.port.config.AuthConfig;
-import ru.rsreu.port.crutches.crutchesDB;
-import ru.rsreu.port.database.impl.UserDAOImpl;
+import ru.rsreu.port.database.config.AuthConfig;
 import ru.rsreu.port.entity.User;
 import ru.rsreu.port.entity.enums.Roles;
 import ru.rsreu.port.enums.Jsp;
