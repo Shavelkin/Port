@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="429e855c-d436-47dc-9ced-35fe86a65ad5" name="Changes" comment="port">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_01_2023_0_52_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_01_2023_0_52__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/CaptainRequestDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/CaptainRequestDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/captain/CreateRequestCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/captain/CreateRequestCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/utils/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/utils/DateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,21 +61,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Project/Port/src/main/java/ru/rsreu/port&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Project/Port/src/main/java/ru/rsreu/port",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Project\Port\src\main\java\ru\rsreu\port" />
@@ -224,7 +228,6 @@
       <workItem from="1675102433895" duration="1307000" />
       <workItem from="1675151823674" duration="19000" />
       <workItem from="1675419904147" duration="1753000" />
-      <workItem from="1675711515439" duration="3791000" />
     </task>
     <task id="LOCAL-00001" summary="port">
       <created>1674467947579</created>
@@ -345,14 +348,7 @@
       <option name="project" value="LOCAL" />
       <updated>1675607491365</updated>
     </task>
-    <task id="LOCAL-00018" summary="port">
-      <created>1675615918967</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1675615918967</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +372,7 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint type="java-exception">
+        <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.Exception" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>

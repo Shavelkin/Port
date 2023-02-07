@@ -23,20 +23,17 @@ public class CreateRequestCommand extends FrontCommand {
     @Override
     public void init(ServletContext servletContext, HttpServletRequest servletRequest, HttpServletResponse servletResponse) {
         super.init(servletContext, servletRequest, servletResponse);
-        System.out.println("COMMAND INIT");
         captainRequestService = ServiceFactory.getCaptainRequestService();
     }
 
     @Override
     public void process() throws ServletException, IOException {
-        System.out.println("COMMAND PROCESS");
         forward(Jsp.CREATE_REQUEST);
     }
 
     @Override
     public void send() throws ServletException, IOException {
         try {
-            System.out.println("COMMAND SEND");
             CaptainRequest captainRequest = mapCaptainRequestFromRequest();
 //            User user = UserUtil.getFromRequest(request).get();
             User user = new User(1, "cap1", "qwerty1", "Petya", Roles.CAPTAIN);
@@ -54,7 +51,8 @@ public class CreateRequestCommand extends FrontCommand {
                 0,
                 null,
                 1,
-                "24-JAN-12",
+                //"24-JAN-12",
+                DateUtil.getCurrentDate(),
                 CaptainRequestStatus.WAITING,
                 Type.ENTERING
         );
