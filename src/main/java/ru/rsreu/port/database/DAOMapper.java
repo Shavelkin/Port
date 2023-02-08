@@ -67,7 +67,8 @@ public class DAOMapper {
                 rs.getInt("pier_id"),
                 rs.getString("datetime"),
                 CaptainRequestStatus.valueOf(rs.getString("status")),
-                Type.valueOf(rs.getString("type"))
+                Type.ENTERING
+                //Type.valueOf(rs.getString("type"))
         );
     }
 

@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="429e855c-d436-47dc-9ced-35fe86a65ad5" name="Changes" comment="port">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/DAOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/DAOMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/dao/CaptainRequestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/dao/CaptainRequestDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/CaptainRequestDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/CaptainRequestDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/UserDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/CaptainRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/CaptainRequestService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/captain/CreateRequestCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/captain/CreateRequestCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/captain/createRequest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/captain/createRequest.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675777371026</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="port">
+      <created>1675848015797</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1675848015797</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

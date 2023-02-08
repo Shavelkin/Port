@@ -28,7 +28,7 @@ public class CreateRequestCommand extends FrontCommand {
     public void process() throws ServletException, IOException {
         Integer userID = UserUtil.getUserIdFromCookies(request.getCookies()).get();
         try {
-            if (captainRequestService.findCurrentRequestByCaptain(userID) == null) {
+            if (captainRequestService.findCurrentRequestByCaptain(userID) == 0) {
                 forward(Jsp.CREATE_REQUEST);
             } else { forward(Jsp.CAPTAIN_PROFILE); }
         } catch (Exception e) {

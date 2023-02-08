@@ -1,7 +1,6 @@
 package ru.rsreu.port.database.dao;
 
 import ru.rsreu.port.entity.*;
-import ru.rsreu.port.entity.enums.CaptainRequestStatus;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ public interface CaptainRequestDAO {
     List<Pier> findBusyPiers();
     List<Pilot> findFreePilotList();
     Ship findShipByCaptainId(Integer captainId);
-    CaptainRequest findCurrentRequestByCaptain(Integer captainId);
+    Integer findNumberRequestByCaptain(Integer captainId);
     List<User> findAllCaptainList();
     List<User> findAllDispatcherList();
 }

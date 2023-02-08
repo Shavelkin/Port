@@ -2,10 +2,7 @@ package ru.rsreu.port.service;
 
 import ru.rsreu.port.database.DAOFactory;
 import ru.rsreu.port.database.dao.CaptainRequestDAO;
-import ru.rsreu.port.database.dao.UserDAO;
-import ru.rsreu.port.database.impl.CaptainRequestDAOImpl;
 import ru.rsreu.port.entity.CaptainRequest;
-import ru.rsreu.port.entity.enums.CaptainRequestStatus;
 
 public class CaptainRequestService {
     private static CaptainRequestService instance;
@@ -29,8 +26,8 @@ public class CaptainRequestService {
         captainRequestDAO.save(request);
     }
 
-    public CaptainRequest findCurrentRequestByCaptain(Integer captainId) {
-        return captainRequestDAO.findCurrentRequestByCaptain(captainId);
+    public Integer findCurrentRequestByCaptain(Integer captainId) {
+        return captainRequestDAO.findNumberRequestByCaptain(captainId);
     }
 
 //    public void deleteRequest(Integer requestId) {

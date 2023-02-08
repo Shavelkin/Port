@@ -31,9 +31,10 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
         String query = resourcer.getString("request.save");
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, request.getCaptainId());
-            statement.setString(2, request.getDatetime().toString());
+            statement.setString(2, request.getDatetime());
             statement.setString(3, request.getStatus().toString());
             statement.setString(4, request.getType().toString());
+            statement.setInt(5, request.getPierId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -147,18 +148,32 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
     }
 
     @Override
-    public CaptainRequest findCurrentRequestByCaptain(Integer captainId) {
+    public Integer findNumberRequestByCaptain(Integer captainId) {
+//        String query = ProjectResourcer.getInstance().getString("request.find.by.captain");
+//        try (PreparedStatement ps = connection.prepareStatement(query)) {
+//            ps.setInt(1, captainId);
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                return DAOMapper.mapCaptainRequest(rs);
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+
         String query = ProjectResourcer.getInstance().getString("request.find.by.captain");
+        List<CaptainRequest> requests = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, captainId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                return DAOMapper.mapCaptainRequest(rs);
+                requests.add(DAOMapper.mapCaptainRequest(rs));
             }
+            return requests.size();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return 0;
     }
 
     @Override
