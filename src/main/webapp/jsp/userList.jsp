@@ -25,24 +25,19 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Фамилия</th>
+                    <th>ID</th>
                     <th>Имя</th>
-                    <th>Статус</th>
                     <th>Роль в системе</th>
-                    <th>Авторизован</th>
                     <th>Действия</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="session" items="${sessions}">
+                <c:forEach var="user" items="${users}">
                 <tr>
-                    <td>${session.getUser().getLastName()}</td>
-                    <td>${session.getUser().getFirstName()}</td>
-                    <td>${session.getUser().userStatus.getRussianName()}</td>
-                    <td>${session.getUser().userRole.getRussianName()}</td>
-                    <td>${session.status.getRussianName()}</td>
+                    <td>${user.getUserId()}</td>
+                    <td>${user.getName()}</td>
+                    <td>${user.getUserRole().getRussianName()}</td>
                     <td>
-                        <c:if test="${role.equals(Roles.ADMIN)}">
                             <div class="w-full flex items-center justify-center space-x-2">
                                 <button class="text-gray-700 hover:text-gray-900" name="submit"
                                         onclick="deleteUser(${session.getUser().getUserId()})">
@@ -53,23 +48,6 @@
                                     <span class="material-symbols-outlined">edit</span>
                                 </button>
                             </div>
-                        </c:if>
-                        <c:if test="${role.equals(Roles.MODERATOR)}">
-                            <c:if test="${session.getUser().getUserStatus().equals(UserStatus.NOT_BLOCKED)}">
-                                <div class="w-full flex items-center justify-center space-x-2">
-                                    <button class="text-gray-700 hover:text-gray-900" onclick="blockUser(${session.getUser().getUserId()})">
-                                        <span class="material-symbols-outlined">lock</span>
-                                    </button>
-                                </div>
-                            </c:if>
-                            <c:if test="${session.getUser().getUserStatus().equals(UserStatus.BLOCKED)}">
-                                <div class="w-full flex items-center justify-center space-x-2">
-                                    <button class="text-gray-700 hover:text-gray-900" onclick="unblockUser(${session.getUser().getUserId()})">
-                                        <span class="material-symbols-outlined">lock_open</span>
-                                    </button>
-                                </div>
-                            </c:if>
-                        </c:if>
                     </td>
                 </tr>
                 </c:forEach>

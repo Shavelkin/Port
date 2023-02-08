@@ -12,12 +12,6 @@ public class User implements Principal {
     private String name;
     private Roles userRole;
 
-    public Roles getUserRole() {
-        return userRole;
-    }
-
-
-
     public User(Integer id,  String login, String password, String name, Roles userRole) {
         this.userId = id;
         this.name = name;
@@ -55,5 +49,7 @@ public class User implements Principal {
         return this.name;
     }
 
-
+    public Roles getUserRole() {
+        return userRole;
+    }
 }

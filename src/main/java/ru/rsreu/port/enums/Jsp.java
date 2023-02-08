@@ -6,6 +6,7 @@ public enum Jsp {
     DISPATCHER_PROFILE("/jsp/dispatcher/dispatcherProfile.jsp"),
     CAPTAIN_PROFILE("/jsp/captain/captainProfile.jsp"),
     CREATE_REQUEST("/jsp/captain/createRequest.jsp"),
+    USER_LIST("/jsp/userList.jsp"),
 
     ADD_USER("/jsp/admin/addUser.jsp"),
     NOT_FOUND("/jsp/404.jsp");
