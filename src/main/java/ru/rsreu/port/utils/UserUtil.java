@@ -1,6 +1,7 @@
 package ru.rsreu.port.utils;
 
 import ru.rsreu.port.entity.User;
+import ru.rsreu.port.entity.enums.Roles;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -47,6 +48,14 @@ public class UserUtil {
         }
 
         return Optional.empty();
+    }
+    public static String getNameRequestByRole(Roles role){
+        switch (role) {
+            case ADMIN: return "admin.add";
+            case CAPTAIN: return "captain.add";
+            case DISPATCHER: return "dispatcher.add";
+        }
+        return null;
     }
 }
 

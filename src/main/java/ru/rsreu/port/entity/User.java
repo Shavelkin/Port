@@ -26,6 +26,13 @@ public class User implements Principal {
         this.userRole = userRole;
     }
 
+    public User(String login, String password, String name, Roles userRole) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.userRole = userRole;
+    }
+
     public User(){
         this.userId = 0;
         this.name = "incognito";

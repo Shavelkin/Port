@@ -27,7 +27,7 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
 
     @Override
     public void save(CaptainRequest request) {
-        System.out.println("METHOD SAVE");
+        System.out.println("METHOD SAVE Request");
         String query = resourcer.getString("request.save");
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, request.getCaptainId());

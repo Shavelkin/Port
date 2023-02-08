@@ -6,6 +6,7 @@ import ru.rsreu.port.entity.User;
 import ru.rsreu.port.database.DAOMapper;
 import ru.rsreu.port.entity.enums.Roles;
 import ru.rsreu.port.resourcer.ProjectResourcer;
+import ru.rsreu.port.utils.UserUtil;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +26,25 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             case "Капитан": return findCaptainByLogin(login);
         }
         return new User();
-    };
+    }
+
+    @Override
+    public void save(User user) {
+        System.out.println("METHOD SAVE User");
+        String roleRequest =  UserUtil.getNameRequestByRole(user.getUserRole());
+        String query = resourcer.getString(roleRequest);
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, user.getLogin());
+            statement.setString(2, user.getPassword());
+            statement.setString(3, user.getName());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
 
     private Roles defineRoleUserByLogin(String login) {

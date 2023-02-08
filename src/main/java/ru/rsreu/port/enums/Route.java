@@ -11,6 +11,8 @@ public enum Route {
 
     CAPTAIN_PROFILE("/captainProfile"),
     CREATE_REQUEST("/createRequest"),
+
+    ADD_USER("/addUser"),
     NOT_FOUND("404");
     private final String route;
 

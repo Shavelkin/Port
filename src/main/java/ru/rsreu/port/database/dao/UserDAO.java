@@ -6,9 +6,10 @@ import java.util.Optional;
 
 public interface UserDAO {
     User findUserByLogin(String login);
+    void save(User user);
 //    List<User> findAll();
 //    User findUserById(Integer id);
 //    Optional<User> update(User user);
 //    void delete(User user);
-//    void save(User user);
+
 }

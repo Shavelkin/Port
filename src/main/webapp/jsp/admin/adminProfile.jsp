@@ -19,7 +19,7 @@
       </a>
       <ul class="flex item-center space-x-1 p-1 mt-4 border border-gray-100 rounded-lg bg-gray-50">
         <li>
-          <a href="/port/adduser"
+          <a href="/port/addUser"
              class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Добавление
             пользователя</a>
         </li>

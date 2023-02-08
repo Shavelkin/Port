@@ -4,6 +4,7 @@ package ru.rsreu.port.database.config;
 import ru.rsreu.port.enums.Route;
 import ru.rsreu.port.servlets.FrontCommand;
 import ru.rsreu.port.servlets.command.*;
+import ru.rsreu.port.servlets.command.admin.AddUserCommand;
 import ru.rsreu.port.servlets.command.admin.AdminProfileCommand;
 import ru.rsreu.port.servlets.command.captain.CaptainProfileCommand;
 import ru.rsreu.port.servlets.command.dispatcher.DispatcherProfileCommand;
@@ -25,6 +26,7 @@ public class CommandConfig {
             Map.entry(Route.CAPTAIN_PROFILE, new CaptainProfileCommand()),
             Map.entry(Route.DISPATCHER_PROFILE, new DispatcherProfileCommand()),
             Map.entry(Route.CREATE_REQUEST, new CreateRequestCommand()),
+            Map.entry(Route.ADD_USER, new AddUserCommand()),
             Map.entry(Route.NOT_FOUND, new EmptyCommand())
     );
 
@@ -35,7 +37,8 @@ public class CommandConfig {
             Route.ADMIN_PROFILE,
             Route.CAPTAIN_PROFILE,
             Route.DISPATCHER_PROFILE,
-            Route.CREATE_REQUEST
+            Route.CREATE_REQUEST,
+            Route.ADD_USER
     );
 
     public static FrontCommand getCommand(String path) {

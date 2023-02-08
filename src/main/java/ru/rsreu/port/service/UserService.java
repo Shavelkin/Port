@@ -23,4 +23,8 @@ public class UserService {
     public User getUser(String login) {
         return userDAO.findUserByLogin(login);
     }
+    public void addUser(User user) {
+        userDAO.save(user);
+    }
+
 }
