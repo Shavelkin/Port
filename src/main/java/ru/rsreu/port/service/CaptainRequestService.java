@@ -29,6 +29,10 @@ public class CaptainRequestService {
         captainRequestDAO.save(request);
     }
 
+    public CaptainRequest findCurrentRequestByCaptain(Integer captainId) {
+        return captainRequestDAO.findCurrentRequestByCaptain(captainId);
+    }
+
 //    public void deleteRequest(Integer requestId) {
 //        CaptainRequest request = CaptainRequestDAOImpl.findById(requestId);
 //        if (request.getStatus().equals(CaptainRequestStatus.APPROVED) && !request.getTrip().getTripStatus().equals(TripStatus.COMPLETED)) {

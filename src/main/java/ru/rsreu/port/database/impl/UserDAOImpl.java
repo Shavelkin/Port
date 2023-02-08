@@ -57,9 +57,6 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         } else {
             return Roles.UNKNOWN;
         }
-
-
-
     }
 
 
