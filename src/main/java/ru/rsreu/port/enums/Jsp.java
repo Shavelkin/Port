@@ -8,6 +8,8 @@ public enum Jsp {
     CREATE_REQUEST("/jsp/captain/createRequest.jsp"),
 
     ADD_USER("/jsp/admin/addUser.jsp"),
+
+    INFO_CURRENT_REQUEST("/jsp/captain/infoCurrentRequest.jsp"),
     NOT_FOUND("/jsp/404.jsp");
     private final String route;
 

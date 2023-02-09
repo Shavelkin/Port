@@ -13,6 +13,8 @@ public enum Route {
     CREATE_REQUEST("/createRequest"),
 
     ADD_USER("/addUser"),
+
+    INFO_CURRENT_REQUEST("/infoCurrentRequest"),
     NOT_FOUND("404");
     private final String route;
 

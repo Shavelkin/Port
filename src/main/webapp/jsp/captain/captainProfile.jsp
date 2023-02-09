@@ -23,16 +23,8 @@
              class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Подать заявку</a>
         </li>
         <li>
-          <a href="/port/currentRequestInfo"
+          <a href="/port/infoCurrentRequest"
              class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Информация о текущей заявке</a>
-        </li>
-        <li>
-          <a href="/port/informAboutPier"
-             class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Сообщить о занятии/освобождении причала</a>
-        </li>
-        <li>
-          <a href="/port/cancelRequest"
-             class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Отменить заявку</a>
         </li>
         <li>
           <a href="/port/login"

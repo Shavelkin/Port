@@ -23,6 +23,9 @@ public class CaptainRequest {
         this.type = type;
     }
 
+    public CaptainRequest() {
+    }
+
     public Integer getId() {
         return id;
     }

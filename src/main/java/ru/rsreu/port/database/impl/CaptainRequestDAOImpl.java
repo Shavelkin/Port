@@ -177,6 +177,24 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
     }
 
     @Override
+    public CaptainRequest findCurrentRequestByCaptain(Integer captainId){
+        String query = ProjectResourcer.getInstance().getString("request.find.request_by_captain");
+        CaptainRequest request = new CaptainRequest();
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setInt(1, captainId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                request = DAOMapper.mapCaptainRequest(rs);
+            }
+            return request;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    @Override
     public List<User> findAllCaptainList() {
         return null;
     }

@@ -17,6 +17,8 @@ public interface CaptainRequestDAO {
     List<Pilot> findFreePilotList();
     Ship findShipByCaptainId(Integer captainId);
     Integer findNumberRequestByCaptain(Integer captainId);
+
+    CaptainRequest findCurrentRequestByCaptain(Integer captainId);
     List<User> findAllCaptainList();
     List<User> findAllDispatcherList();
 }
