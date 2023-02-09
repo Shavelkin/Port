@@ -27,13 +27,13 @@
             <ul class="flex item-center space-x-1 p-1 mt-4 border border-gray-100 rounded-lg bg-gray-50">
                 <form name = "InfoCurrentRequestForm" method="POST" action = "infoCurrentRequest">
 
-                    <label>Проследуйте к пирсу ${captainRequest.pierId}</label><br>
+                    <label>Займите/освободите ${captainRequest.pierId} пирс</label><br>
                     <label>Время заявки: ${captainRequest.datetime}</label><br>
                     <label>Статус: ${captainRequest.status}</label><br>
                     <label>Тип заявки: ${captainRequest.type}</label><br>
 
-                    <button class="submit" type="submit" name="confirm">Подтвердить приплытие/отплытие</button>
-                    <button class="submit" type="submit" name="cancel">Отменить заявку</button>
+                    <button class="submit">Подтвердить приплытие/отплытие</button>
+                    <button class="submit">Отменить заявку</button>
                 </form>
             </ul>
         </div>

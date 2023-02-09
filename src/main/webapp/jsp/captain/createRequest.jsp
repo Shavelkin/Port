@@ -26,7 +26,7 @@
                         <option value="3">Выход без лоцмана</option>
                     </select></p>
 
-                    <button class="submit" type="submit" name="submit">Отправить заявку</button>
+                    <button class="submit" >Отправить заявку</button>
                 </form>
             </ul>
         </div>
