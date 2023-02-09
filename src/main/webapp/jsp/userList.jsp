@@ -46,6 +46,8 @@
             </table>
         </div>
     </div>
+    <a href="/port/changeUser" class="submit">Изменить</a>
+    <a href="/port/deleteUser" class="submit">Удалить</a>
 </div>
 </div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/scripts.js"></script>

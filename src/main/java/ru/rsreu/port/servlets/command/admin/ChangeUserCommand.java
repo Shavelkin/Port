@@ -1,5 +1,6 @@
 package ru.rsreu.port.servlets.command.admin;
 
+import ru.rsreu.port.entity.User;
 import ru.rsreu.port.entity.enums.Roles;
 import ru.rsreu.port.enums.Jsp;
 import ru.rsreu.port.enums.Route;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class DeleteUserCommand extends FrontCommand {
+public class ChangeUserCommand extends FrontCommand {
 
     private UserService userService;
 
@@ -25,15 +26,19 @@ public class DeleteUserCommand extends FrontCommand {
 
     @Override
     public void process() throws ServletException, IOException {
-        forward(Jsp.DELETE_USER);
+        forward(Jsp.CHANGE_USER);
     }
 
     @Override
     public void send() throws ServletException, IOException {
-        Integer userId = Integer.valueOf(request.getParameter("user_id"));
-        Roles userRole = Roles.valueOf(request.getParameter("user_role"));
+        Integer userId = Integer.valueOf(request.getParameter("id"));
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        String name = request.getParameter("name");
+        Roles role = Roles.valueOf(request.getParameter("userRole"));
+        User newUser = new User(userId, login, password, name, role);
         try {
-            userService.deleteUser(userId, userRole);
+            //userService.deleteUser(userId, userRole);
             redirect(Route.ADMIN_PROFILE.getAbsolute());
         } catch (Exception e) {
             e.printStackTrace();

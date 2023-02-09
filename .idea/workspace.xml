@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae097461-4aed-44cd-b219-b25cfbd256b6" name="Changes" comment="port">
+    <list default="true" id="429e855c-d436-47dc-9ced-35fe86a65ad5" name="Changes" comment="port">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/admin/ChangeUserCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/changeUser.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/deleteUser.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/dao/CaptainRequestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/dao/CaptainRequestDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/CaptainRequestDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/CaptainRequestDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/config/CommandConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/config/CommandConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Route.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/admin/DeleteUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/admin/DeleteUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/utils/UserUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/utils/UserUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/userList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/userList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +67,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -76,28 +86,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Project/Port/src/main/java/ru/rsreu/port&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Project/Port/src/main/webapp/jsp/admin",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;oracle&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\Port\src\main\webapp\jsp\admin" />
+      <recent name="D:\Project\Port\src\main\webapp\jsp" />
       <recent name="D:\Project\Port\src\main\java\ru\rsreu\port" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -107,11 +119,11 @@
       <recent name="D:\Project\Port\src\main\webapp\jsp\admin" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.rsreu.port.servlets.command.admin" />
       <recent name="ru.rsreu.port.database.impl" />
       <recent name="ru.rsreu.port.utils" />
       <recent name="ru.rsreu.port.database.dao" />
       <recent name="ru.rsreu.port.entity" />
-      <recent name="ru.rsreu.port.dto" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.711">

@@ -13,6 +13,8 @@ public enum Jsp {
     WAITING_REQUEST_LIST("/jsp/waitingRequestList.jsp"),
 
     ADD_USER("/jsp/admin/addUser.jsp"),
+    DELETE_USER("/jsp/admin/deleteUser.jsp"),
+    CHANGE_USER("/jsp/admin/changeUser.jsp"),
 
     INFO_CURRENT_REQUEST("/jsp/captain/infoCurrentRequest.jsp"),
     NOT_FOUND("/jsp/404.jsp");

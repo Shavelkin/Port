@@ -66,5 +66,14 @@ public class UserUtil {
         }
         return null;
     }
+
+    public static String getUpdateRequestByRole(Roles role){
+        switch (role) {
+            case ADMIN: return "admin.update";
+            case CAPTAIN: return "captain.update";
+            case DISPATCHER: return "dispatcher.update";
+        }
+        return null;
+    }
 }
 

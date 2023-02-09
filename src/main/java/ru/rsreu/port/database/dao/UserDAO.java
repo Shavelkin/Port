@@ -10,6 +10,7 @@ public interface UserDAO {
     User findUserByLogin(String login);
     void save(User user);
     void delete(Integer userId, Roles userRole);
+    void update(Integer userId, User newUser);
     List<User> getAllUsers();
 //    User findUserById(Integer id);
 //    Optional<User> update(User user);

@@ -33,6 +33,10 @@ public class UserService {
         userDAO.delete(userId, userRole);
     }
 
+    public void updateUser(Integer userId, User newUser) {
+        userDAO.update(userId, newUser);
+    }
+
     public List<User> getAllUsers() { return userDAO.getAllUsers(); };
 
 }

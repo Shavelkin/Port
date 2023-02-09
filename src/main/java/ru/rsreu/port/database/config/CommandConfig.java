@@ -4,9 +4,7 @@ package ru.rsreu.port.database.config;
 import ru.rsreu.port.enums.Route;
 import ru.rsreu.port.servlets.FrontCommand;
 import ru.rsreu.port.servlets.command.*;
-import ru.rsreu.port.servlets.command.admin.AddUserCommand;
-import ru.rsreu.port.servlets.command.admin.AdminProfileCommand;
-import ru.rsreu.port.servlets.command.admin.UserListCommand;
+import ru.rsreu.port.servlets.command.admin.*;
 import ru.rsreu.port.servlets.command.captain.*;
 import ru.rsreu.port.servlets.command.dispatcher.ActiveRequestListCommand;
 import ru.rsreu.port.servlets.command.dispatcher.DispatcherProfileCommand;
@@ -35,6 +33,9 @@ public class CommandConfig {
             Map.entry(Route.INFO_CURRENT_REQUEST, new InfoCurrentRequestCommand()),
             Map.entry(Route.INFORM_ABOUT_MOVEMENT, new InformAboutMovementCommand()),
             Map.entry(Route.CANCEL_REQUEST, new CancelRequestCommand()),
+            Map.entry(Route.DELETE_USER, new DeleteUserCommand()),
+            Map.entry(Route.CHANGE_USER, new ChangeUserCommand()),
+
             Map.entry(Route.NOT_FOUND, new EmptyCommand())
     );
 
@@ -53,7 +54,8 @@ public class CommandConfig {
             Route.INFO_CURRENT_REQUEST,
             Route.INFORM_ABOUT_MOVEMENT,
             Route.CANCEL_REQUEST,
-            Route.CREATE_REQUEST
+            Route.DELETE_USER,
+            Route.CHANGE_USER
     );
 
     public static FrontCommand getCommand(String path) {
