@@ -52,6 +52,7 @@ public class CommandConfig {
             Route.WAITING_REQUEST_LIST,
             Route.INFO_CURRENT_REQUEST,
             Route.INFORM_ABOUT_MOVEMENT,
+            Route.CANCEL_REQUEST,
             Route.CREATE_REQUEST
     );
 
