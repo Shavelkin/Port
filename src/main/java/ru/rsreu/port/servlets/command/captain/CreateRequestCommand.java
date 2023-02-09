@@ -42,8 +42,10 @@ public class CreateRequestCommand extends FrontCommand {
 
     @Override
     public void send() throws ServletException, IOException {
+        Type type = Type.valueOf(request.getParameter("typeCaptainRequest"));
+
         try {
-            CaptainRequest captainRequest = generateRequestTemplate();
+            CaptainRequest captainRequest = generateRequestTemplate(type);
             captainRequestService.createRequest(captainRequest);
             forward(Jsp.CAPTAIN_PROFILE);
         } catch (Exception e) {
@@ -52,14 +54,14 @@ public class CreateRequestCommand extends FrontCommand {
         }
     }
 
-    private CaptainRequest generateRequestTemplate() {
+    private CaptainRequest generateRequestTemplate(Type type) {
         return new CaptainRequest(
                 0,
                 UserUtil.getUserIdFromCookies(request.getCookies()).get(),
                 -1,
                 DateUtil.getCurrentDate(),
                 CaptainRequestStatus.WAITING,
-                Type.ENTERING
+                type
         );
     }
 

@@ -68,7 +68,16 @@ public class DAOMapper {
                 rs.getString("datetime"),
                 CaptainRequestStatus.valueOf(rs.getString("status")),
                 Type.ENTERING
-                //Type.valueOf(rs.getString("type"))
+        );
+    }
+    public static CaptainRequest mapCaptainRequest(ResultSet rs, Type type) throws SQLException {
+        return new CaptainRequest(
+                rs.getInt("id"),
+                rs.getInt("captain_id"),
+                rs.getInt("pier_id"),
+                rs.getString("datetime"),
+                CaptainRequestStatus.valueOf(rs.getString("status")),
+                type
         );
     }
 
