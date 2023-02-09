@@ -18,6 +18,7 @@ public enum Route {
     WAITING_REQUEST_LIST("/waitingRequestList"),
 
     ADD_USER("/addUser"),
+    DELETE_USER("/deleteUser"),
 
     INFO_CURRENT_REQUEST("/infoCurrentRequest"),
     NOT_FOUND("404");

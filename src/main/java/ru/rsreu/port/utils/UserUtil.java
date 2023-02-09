@@ -57,5 +57,14 @@ public class UserUtil {
         }
         return null;
     }
+
+    public static String getDeleteRequestByRole(Roles role){
+        switch (role) {
+            case ADMIN: return "admin.delete";
+            case CAPTAIN: return "captain.delete";
+            case DISPATCHER: return "dispatcher.delete";
+        }
+        return null;
+    }
 }
 

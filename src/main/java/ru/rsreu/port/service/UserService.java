@@ -3,6 +3,7 @@ package ru.rsreu.port.service;
 import ru.rsreu.port.entity.User;
 import ru.rsreu.port.database.DAOFactory;
 import ru.rsreu.port.database.dao.UserDAO;
+import ru.rsreu.port.entity.enums.Roles;
 
 import java.util.List;
 
@@ -27,6 +28,9 @@ public class UserService {
     }
     public void addUser(User user) {
         userDAO.save(user);
+    }
+    public void deleteUser(Integer userId, Roles userRole) {
+        userDAO.delete(userId, userRole);
     }
 
     public List<User> getAllUsers() { return userDAO.getAllUsers(); };

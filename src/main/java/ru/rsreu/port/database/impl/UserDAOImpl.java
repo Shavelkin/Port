@@ -42,6 +42,18 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         }
     }
 
+    @Override
+    public void delete(Integer userId, Roles userRole) {
+        String roleRequest =  UserUtil.getDeleteRequestByRole(userRole);
+        String query = resourcer.getString(roleRequest);
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+            st.setInt(1, userId);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private Roles defineRoleUserByLogin(String login) {
         if(findAdminByLogin(login).getUserRole().equals(Roles.ADMIN)){
             return Roles.ADMIN;
