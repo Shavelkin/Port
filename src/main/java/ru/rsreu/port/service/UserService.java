@@ -4,6 +4,8 @@ import ru.rsreu.port.entity.User;
 import ru.rsreu.port.database.DAOFactory;
 import ru.rsreu.port.database.dao.UserDAO;
 
+import java.util.List;
+
 public class UserService {
     private static UserService instance;
     private final UserDAO userDAO;
@@ -26,5 +28,7 @@ public class UserService {
     public void addUser(User user) {
         userDAO.save(user);
     }
+
+    public List<User> getAllUsers() { return userDAO.getAllUsers(); };
 
 }

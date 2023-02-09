@@ -11,6 +11,7 @@ public enum Route {
 
     CAPTAIN_PROFILE("/captainProfile"),
     CREATE_REQUEST("/createRequest"),
+    USER_LIST("/userList"),
 
     ADD_USER("/addUser"),
 

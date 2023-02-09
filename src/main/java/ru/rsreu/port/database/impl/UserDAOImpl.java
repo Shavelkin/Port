@@ -30,7 +30,6 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
 
     @Override
     public void save(User user) {
-        System.out.println("METHOD SAVE User");
         String roleRequest =  UserUtil.getNameRequestByRole(user.getUserRole());
         String query = resourcer.getString(roleRequest);
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -42,10 +41,6 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             e.printStackTrace();
         }
     }
-
-
-
-
 
     private Roles defineRoleUserByLogin(String login) {
         if(findAdminByLogin(login).getUserRole().equals(Roles.ADMIN)){
@@ -100,6 +95,43 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             e.printStackTrace();
         }
         return new User();
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+
+        String query = resourcer.getString("admin.find.all");
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+            ResultSet resultSet = st.executeQuery();
+            while (resultSet.next()) {
+                users.add(DAOMapper.mapAdministrator(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        query = resourcer.getString("dispatcher.find.all");
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+            ResultSet resultSet = st.executeQuery();
+            while (resultSet.next()) {
+                users.add(DAOMapper.mapDispatcher(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        query = resourcer.getString("captain.find.all");
+        try (PreparedStatement st = connection.prepareStatement(query)) {
+            ResultSet resultSet = st.executeQuery();
+            while (resultSet.next()) {
+                users.add(DAOMapper.mapCaptain(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return users;
     }
 
     public static UserDAOImpl getInstance() {
