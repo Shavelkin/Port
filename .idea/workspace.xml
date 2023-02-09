@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="429e855c-d436-47dc-9ced-35fe86a65ad5" name="Changes" comment="port">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/CaptainRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/CaptainRequestService.java" afterDir="false" />
+    <list default="true" id="ae097461-4aed-44cd-b219-b25cfbd256b6" name="Changes" comment="port">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/dao/CaptainRequestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/dao/CaptainRequestDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/CaptainRequestDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/CaptainRequestDAOImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +56,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />

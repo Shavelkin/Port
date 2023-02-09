@@ -110,7 +110,7 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return requests;
     }
 
     @Override
@@ -199,6 +199,18 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
         String query = resourcer.getString("request.change.status");
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, CaptainRequestStatus.COMPLETED.toString());
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void changeStatusToApproved(Integer id) {
+        String query = resourcer.getString("request.change.status");
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, CaptainRequestStatus.APPROVED.toString());
             statement.setInt(2, id);
             statement.executeUpdate();
         } catch (SQLException e) {

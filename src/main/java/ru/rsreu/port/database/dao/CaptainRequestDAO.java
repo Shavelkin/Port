@@ -22,6 +22,8 @@ public interface CaptainRequestDAO {
     void changeStatusToCompleted(Integer id);
     void changeStatusToCancelled(Integer id);
 
+    void changeStatusToApproved(Integer id);
+
     List<User> findAllCaptainList();
     List<User> findAllDispatcherList();
 }

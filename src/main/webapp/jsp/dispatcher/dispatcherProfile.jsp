@@ -32,9 +32,6 @@
                     <a href="/port/pierList"
                        class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Причалы</a>
 
-                    <a href="/port/pilotList"
-                       class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Очередь лоцманов</a>
-
                     <a href="/port/login"
                        class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700"
                        aria-current="page">Выйти из системы</a>
