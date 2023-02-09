@@ -4,6 +4,7 @@ import ru.rsreu.port.database.AbstractDAO;
 import ru.rsreu.port.database.DAOMapper;
 import ru.rsreu.port.database.dao.CaptainRequestDAO;
 import ru.rsreu.port.entity.*;
+import ru.rsreu.port.entity.enums.CaptainRequestStatus;
 import ru.rsreu.port.resourcer.ProjectResourcer;
 
 import java.sql.PreparedStatement;
@@ -191,6 +192,30 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void changeStatusToCompleted(Integer id) {
+        String query = resourcer.getString("request.change.status");
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, CaptainRequestStatus.COMPLETED.toString());
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void changeStatusToCancelled(Integer id) {
+        String query = resourcer.getString("request.change.status");
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, CaptainRequestStatus.CANCELLED.toString());
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

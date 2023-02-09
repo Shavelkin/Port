@@ -7,11 +7,9 @@ import ru.rsreu.port.servlets.command.*;
 import ru.rsreu.port.servlets.command.admin.AddUserCommand;
 import ru.rsreu.port.servlets.command.admin.AdminProfileCommand;
 import ru.rsreu.port.servlets.command.admin.UserListCommand;
-import ru.rsreu.port.servlets.command.captain.CaptainProfileCommand;
-import ru.rsreu.port.servlets.command.captain.InfoCurrentRequestCommand;
+import ru.rsreu.port.servlets.command.captain.*;
 import ru.rsreu.port.servlets.command.dispatcher.ActiveRequestListCommand;
 import ru.rsreu.port.servlets.command.dispatcher.DispatcherProfileCommand;
-import ru.rsreu.port.servlets.command.captain.CreateRequestCommand;
 import ru.rsreu.port.servlets.command.dispatcher.WaitingRequestListCommand;
 //import ru.rsreu.port.servlets.command.admin.*;
 //import ru.rsreu.port.servlets.command.driver.*;
@@ -35,6 +33,8 @@ public class CommandConfig {
             Map.entry(Route.WAITING_REQUEST_LIST, new WaitingRequestListCommand()),
             Map.entry(Route.ACTIVE_REQUEST_LIST, new ActiveRequestListCommand()),
             Map.entry(Route.INFO_CURRENT_REQUEST, new InfoCurrentRequestCommand()),
+            Map.entry(Route.INFORM_ABOUT_MOVEMENT, new InformAboutMovementCommand()),
+            Map.entry(Route.CANCEL_REQUEST, new CancelRequestCommand()),
             Map.entry(Route.NOT_FOUND, new EmptyCommand())
     );
 
@@ -50,7 +50,9 @@ public class CommandConfig {
             Route.USER_LIST,
             Route.ACTIVE_REQUEST_LIST,
             Route.WAITING_REQUEST_LIST,
-            Route.INFO_CURRENT_REQUEST
+            Route.INFO_CURRENT_REQUEST,
+            Route.INFORM_ABOUT_MOVEMENT,
+            Route.CREATE_REQUEST
     );
 
     public static FrontCommand getCommand(String path) {

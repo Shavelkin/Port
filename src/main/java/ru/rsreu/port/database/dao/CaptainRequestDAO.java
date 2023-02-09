@@ -19,6 +19,9 @@ public interface CaptainRequestDAO {
     Integer findNumberRequestByCaptain(Integer captainId);
 
     CaptainRequest findCurrentRequestByCaptain(Integer captainId);
+    void changeStatusToCompleted(Integer id);
+    void changeStatusToCancelled(Integer id);
+
     List<User> findAllCaptainList();
     List<User> findAllDispatcherList();
 }

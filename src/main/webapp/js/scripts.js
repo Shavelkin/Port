@@ -10,31 +10,27 @@ function redirect(path, query) {
     window.location.href = url + queryParams;
 }
 
-function redirect2(path, query, query2) {
-    const url = [
-        window.location.origin,
-        'port',
-        path
-    ].join('/');
-
-    const queryParams = query ? `?${new URLSearchParams(query).toString()}` : ''
-    const queryParams2 = query2 ? `?${new URLSearchParams(query2).toString()}` : ''
-
-    window.location.href = url + queryParams + queryParams2;
-}
-
-function deleteUser(userId, userRole) {
-    // $.post("deleteUser", {user_id: userId, user_role: userRole}, function () {
-    //     console.log("deleteUser");
-    // }).fail(function () {
-    //     console.log("deleteUser error!");
-    // });
-    redirect2('addUser',{user_id: userId}, {user_role: userRole});
-    //window.location.reload();
+function deleteUser(userId) {
+    $.post("deleteUser", {user_id: userId}, function () {
+        console.log("deleteUser");
+    }).fail(function () {
+        console.log("deleteUser error!");
+    });
+    window.location.reload();
 }
 
 function changeUser(userId) {
-    redirect('addUser',{user_id: userId});
+    // $.post("changeUser", {user_id: userId}, function () {
+    //     console.log("changeUser");
+    // }).fail(function () {
+    //     console.log("changeUser error!");
+    // });
+    // const url = new URL('http://localhost:8080/nis/addUser')
+    // // url.searchParams.set('session', '1')
+    // window.location.href = "http://localhost:8080/nis/addUser&user_id="+userId;
+    // // window.location.href = url.href;
+    // window.location.reload();
+    redirect('captainProfile',{user_id: userId});
 }
 
 function createRequest(tripId) {

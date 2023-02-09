@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,14 +27,13 @@
             </a>
             <ul class="flex item-center space-x-1 p-1 mt-4 border border-gray-100 rounded-lg bg-gray-50">
                 <form name = "InfoCurrentRequestForm" method="POST" action = "infoCurrentRequest">
-
                     <label>Займите/освободите ${captainRequest.pierId} пирс</label><br>
                     <label>Время заявки: ${captainRequest.datetime}</label><br>
                     <label>Статус: ${captainRequest.status}</label><br>
-                    <label>Тип заявки: ${captainRequest.type}</label><br>
+                    <label>Тип заявки: ${captainRequest.type}</label><br><br>
 
-                    <button class="submit">Подтвердить приплытие/отплытие</button>
-                    <button class="submit">Отменить заявку</button>
+                    <a href="/port/informAboutMovement" class="submit">Подтвердить приплытие/отплытие</a>
+                    <a href="/port/cancelRequest" class="submit">Отменить заявку</a>
                 </form>
             </ul>
         </div>

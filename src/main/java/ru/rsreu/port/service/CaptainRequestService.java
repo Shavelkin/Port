@@ -20,8 +20,12 @@ public class CaptainRequestService {
         }
         return instance;
     }
-    public void updateRequest(CaptainRequest request) {
-        captainRequestDAO.update(request);
+    public void changeStatusToCompleted(Integer id) {
+        captainRequestDAO.changeStatusToCompleted(id);
+    }
+
+    public void changeStatusToCancelled(Integer id) {
+        captainRequestDAO.changeStatusToCompleted(id);
     }
 
     public void createRequest(CaptainRequest request) {
