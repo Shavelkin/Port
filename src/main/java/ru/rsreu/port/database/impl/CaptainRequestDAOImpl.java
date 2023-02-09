@@ -124,7 +124,7 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return requests;
     }
 
     @Override

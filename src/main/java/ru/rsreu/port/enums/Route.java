@@ -13,6 +13,10 @@ public enum Route {
     CREATE_REQUEST("/createRequest"),
     USER_LIST("/userList"),
 
+    ACTIVE_REQUEST_LIST("/activeRequestList"),
+
+    WAITING_REQUEST_LIST("/waitingRequestList"),
+
     ADD_USER("/addUser"),
 
     INFO_CURRENT_REQUEST("/infoCurrentRequest"),

@@ -8,6 +8,10 @@ public enum Jsp {
     CREATE_REQUEST("/jsp/captain/createRequest.jsp"),
     USER_LIST("/jsp/userList.jsp"),
 
+    ACTIVE_REQUEST_LIST("/jsp/activeRequestList.jsp"),
+
+    WAITING_REQUEST_LIST("/jsp/waitingRequestList.jsp"),
+
     ADD_USER("/jsp/admin/addUser.jsp"),
 
     INFO_CURRENT_REQUEST("/jsp/captain/infoCurrentRequest.jsp"),

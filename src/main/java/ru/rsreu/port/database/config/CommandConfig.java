@@ -9,8 +9,10 @@ import ru.rsreu.port.servlets.command.admin.AdminProfileCommand;
 import ru.rsreu.port.servlets.command.admin.UserListCommand;
 import ru.rsreu.port.servlets.command.captain.CaptainProfileCommand;
 import ru.rsreu.port.servlets.command.captain.InfoCurrentRequestCommand;
+import ru.rsreu.port.servlets.command.dispatcher.ActiveRequestListCommand;
 import ru.rsreu.port.servlets.command.dispatcher.DispatcherProfileCommand;
 import ru.rsreu.port.servlets.command.captain.CreateRequestCommand;
+import ru.rsreu.port.servlets.command.dispatcher.WaitingRequestListCommand;
 //import ru.rsreu.port.servlets.command.admin.*;
 //import ru.rsreu.port.servlets.command.driver.*;
 //import ru.rsreu.port.servlets.command.moder.*;
@@ -30,6 +32,8 @@ public class CommandConfig {
             Map.entry(Route.CREATE_REQUEST, new CreateRequestCommand()),
             Map.entry(Route.ADD_USER, new AddUserCommand()),
             Map.entry(Route.USER_LIST, new UserListCommand()),
+            Map.entry(Route.WAITING_REQUEST_LIST, new WaitingRequestListCommand()),
+            Map.entry(Route.ACTIVE_REQUEST_LIST, new ActiveRequestListCommand()),
             Map.entry(Route.INFO_CURRENT_REQUEST, new InfoCurrentRequestCommand()),
             Map.entry(Route.NOT_FOUND, new EmptyCommand())
     );
@@ -44,6 +48,8 @@ public class CommandConfig {
             Route.CREATE_REQUEST,
             Route.ADD_USER,
             Route.USER_LIST,
+            Route.ACTIVE_REQUEST_LIST,
+            Route.WAITING_REQUEST_LIST,
             Route.INFO_CURRENT_REQUEST
     );
 

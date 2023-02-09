@@ -4,6 +4,8 @@ import ru.rsreu.port.database.DAOFactory;
 import ru.rsreu.port.database.dao.CaptainRequestDAO;
 import ru.rsreu.port.entity.CaptainRequest;
 
+import java.util.List;
+
 public class CaptainRequestService {
     private static CaptainRequestService instance;
     private final CaptainRequestDAO captainRequestDAO;
@@ -42,5 +44,13 @@ public class CaptainRequestService {
 //        }
 //        requestDAO.delete(requestId);
 //    }
+
+    public List<CaptainRequest> getWaitingRequests(){
+        return captainRequestDAO.findWaitingRequests();
+    }
+
+    public List<CaptainRequest> getActiveRequests(){
+        return captainRequestDAO.findActiveRequests();
+    }
 
 }
