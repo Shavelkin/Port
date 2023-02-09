@@ -25,7 +25,7 @@ public class CaptainRequestService {
     }
 
     public void changeStatusToCancelled(Integer id) {
-        captainRequestDAO.changeStatusToCompleted(id);
+        captainRequestDAO.changeStatusToCancelled(id);
     }
 
     public void createRequest(CaptainRequest request) {
