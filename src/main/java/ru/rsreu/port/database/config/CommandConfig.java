@@ -6,6 +6,7 @@ import ru.rsreu.port.servlets.FrontCommand;
 import ru.rsreu.port.servlets.command.*;
 import ru.rsreu.port.servlets.command.admin.AddUserCommand;
 import ru.rsreu.port.servlets.command.admin.AdminProfileCommand;
+import ru.rsreu.port.servlets.command.admin.DeleteUserCommand;
 import ru.rsreu.port.servlets.command.admin.UserListCommand;
 import ru.rsreu.port.servlets.command.captain.CaptainProfileCommand;
 import ru.rsreu.port.servlets.command.captain.InfoCurrentRequestCommand;
@@ -30,6 +31,7 @@ public class CommandConfig {
             Map.entry(Route.CREATE_REQUEST, new CreateRequestCommand()),
             Map.entry(Route.ADD_USER, new AddUserCommand()),
             Map.entry(Route.USER_LIST, new UserListCommand()),
+            Map.entry(Route.DELETE_USER, new DeleteUserCommand()),
             Map.entry(Route.INFO_CURRENT_REQUEST, new InfoCurrentRequestCommand()),
             Map.entry(Route.NOT_FOUND, new EmptyCommand())
     );
@@ -44,6 +46,7 @@ public class CommandConfig {
             Route.CREATE_REQUEST,
             Route.ADD_USER,
             Route.USER_LIST,
+            Route.DELETE_USER,
             Route.INFO_CURRENT_REQUEST
     );
 

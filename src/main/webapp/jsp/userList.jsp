@@ -28,7 +28,8 @@
                     <th>ID</th>
                     <th>Имя</th>
                     <th>Роль в системе</th>
-                    <th>Действия</th>
+                    <th>Логин</th>
+                    <th>Пароль</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,18 +38,8 @@
                     <td>${user.getUserId()}</td>
                     <td>${user.getName()}</td>
                     <td>${user.getUserRole().getRussianName()}</td>
-                    <td>
-                            <div class="w-full flex items-center justify-center space-x-2">
-                                <button class="text-gray-700 hover:text-gray-900" name="submit"
-                                        onclick="deleteUser(${session.getUser().getUserId()})">
-                                    <span class="material-symbols-outlined">delete</span>
-                                </button>
-                                <button class="text-gray-700 hover:text-gray-900" name="submit"
-                                        onclick="changeUser(${session.getUser().getUserId()})">
-                                    <span class="material-symbols-outlined">edit</span>
-                                </button>
-                            </div>
-                    </td>
+                    <td>${user.getLogin()}</td>
+                    <td>${user.getPassword()}</td>
                 </tr>
                 </c:forEach>
                 </tbody>

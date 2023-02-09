@@ -14,6 +14,7 @@ public enum Route {
     USER_LIST("/userList"),
 
     ADD_USER("/addUser"),
+    DELETE_USER("/deleteUser"),
 
     INFO_CURRENT_REQUEST("/infoCurrentRequest"),
     NOT_FOUND("404");
