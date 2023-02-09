@@ -20,10 +20,10 @@
             <ul class="flex item-center space-x-1 p-1 mt-4 border border-gray-100 rounded-lg bg-gray-50">
                 <form name = "CreateRequestForm" method="POST" action = "createRequest">
                     <p><select name="typeCaptainRequest">
-                        <option value="0">Вход с лоцманом</option>
-                        <option value="1">Вход без лоцмана</option>
-                        <option value="2">Выход с лоцманом</option>
-                        <option value="3">Выход без лоцмана</option>
+                        <option value="ENTERING_WITH_PILOT">Вход с лоцманом</option>
+                        <option value="ENTERING">Вход без лоцмана</option>
+                        <option value="EXITING_WITH_PILOT">Выход с лоцманом</option>
+                        <option value="EXITING">Выход без лоцмана</option>
                     </select></p>
 
                     <button class="submit" type="submit" name="submit">Отправить заявку</button>
