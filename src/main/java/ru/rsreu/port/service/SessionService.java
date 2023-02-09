@@ -45,18 +45,18 @@ public class SessionService {
             throw new Exception("Not user");
         }
 
-        Date activeUntil = new Date(System.currentTimeMillis() + SESSION_TIME_LIVE);
-        Optional<Session> optionalSession = sessionDAO.findByUserId(user.getUserId());
-        Session session = optionalSession.isPresent() ?
-                optionalSession.get().setActiveUntil(activeUntil) :
-                new Session(user, activeUntil);
-                optionalSession.orElseGet(() -> new Session(user, activeUntil));
+//        Date activeUntil = new Date(System.currentTimeMillis() + SESSION_TIME_LIVE);
+//        Optional<Session> optionalSession = sessionDAO.findByUserId(user.getUserId());
+//        Session session = optionalSession.isPresent() ?
+//                optionalSession.get().setActiveUntil(activeUntil) :
+//                new Session(user, activeUntil);
+//                optionalSession.orElseGet(() -> new Session(user, activeUntil));
 
-        if (!optionalSession.isPresent()) {
-            sessionDAO.save(session);
-        } else {
-            sessionDAO.update(session);
-        }
+//        if (!optionalSession.isPresent()) {
+//            sessionDAO.save(session);
+//        } else {
+//            sessionDAO.update(session);
+//        }
 
         return user;
     }

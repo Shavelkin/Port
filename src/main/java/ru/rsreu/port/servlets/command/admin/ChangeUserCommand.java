@@ -38,7 +38,7 @@ public class ChangeUserCommand extends FrontCommand {
         Roles role = Roles.valueOf(request.getParameter("userRole"));
         User newUser = new User(userId, login, password, name, role);
         try {
-            //userService.deleteUser(userId, userRole);
+            userService.updateUser(userId, newUser);
             redirect(Route.ADMIN_PROFILE.getAbsolute());
         } catch (Exception e) {
             e.printStackTrace();
