@@ -25,16 +25,13 @@
                 <li>
                     <a href="/port/waitingRequestList"
                        class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Ожидающие заявки</a>
-                </li>
-                <li>
+
                     <a href="/port/activeRequestList"
                        class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Активные заявки</a>
-                </li>
-                <li>
+
                     <a href="/port/pierList"
                        class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Причалы</a>
-                </li>
-                <li>
+
                     <a href="/port/pilotList"
                        class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700">Очередь лоцманов</a>
                 </li>
