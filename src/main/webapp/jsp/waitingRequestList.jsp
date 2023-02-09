@@ -38,6 +38,7 @@
           <th>Время</th>
           <th>Статус</th>
           <th>Тип</th>
+          <th>Пирс</th>
         </tr>
         </thead>
         <tbody>
@@ -49,6 +50,18 @@
             <td>${waitingRequest.getDatetime()}</td>
             <td>${waitingRequest.getStatus()}</td>
             <td>${waitingRequest.getType()}</td>
+            <td>
+              <div class="w-full flex items-center justify-center space-x-2">
+                <p><select name="idPier">
+                  <option value="0">-</option>
+                  <option value="1">№1</option>
+                  <option value="2">№2</option>
+                  <option value="3">№3</option>
+                  <option value="4">№4</option>
+                  <option value="5">№5</option>
+                </select></p>
+              </div>
+            </td>>
           </tr>
         </c:forEach>
         </tbody>
