@@ -17,11 +17,6 @@
   <style>
     <%@include file="../css/style.css" %>
   </style>
-  <script
-          src="https://code.jquery.com/jquery-3.6.3.min.js"
-          integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-          crossorigin="anonymous">
-  </script>
 </head>
 <body>
 <div class="waitingRequestList">
@@ -29,16 +24,17 @@
     <div class="waitingRequestList-inner">
       <div class="waitingRequestList-title title">Список ожидающих заявок</div>
       <br>
+      <a href="/port/approveRequest" class="submit">Одобрить заявку</a>
+      <a href="/port/rejectRequest" class="submit">Отклонить заявку</a>
+      <a href="/port/dispatcherProfile" class="submit">В меню</a><br><br>
       <table class="table">
         <thead>
         <tr>
           <th>ID</th>
           <th>ID Капитана</th>
-          <th>Номер пирса</th>
           <th>Время</th>
           <th>Статус</th>
           <th>Тип</th>
-          <th>Пирс</th>
         </tr>
         </thead>
         <tbody>
@@ -46,22 +42,9 @@
           <tr>
             <td>${waitingRequest.getId()}</td>
             <td>${waitingRequest.getCaptainId()}</td>
-            <td>${waitingRequest.getPierId()}</td>
             <td>${waitingRequest.getDatetime()}</td>
             <td>${waitingRequest.getStatus()}</td>
             <td>${waitingRequest.getType()}</td>
-            <td>
-              <div class="w-full flex items-center justify-center space-x-2">
-                <p><select name="idPier">
-                  <option value="0">-</option>
-                  <option value="1">№1</option>
-                  <option value="2">№2</option>
-                  <option value="3">№3</option>
-                  <option value="4">№4</option>
-                  <option value="5">№5</option>
-                </select></p>
-              </div>
-            </td>>
           </tr>
         </c:forEach>
         </tbody>
@@ -70,7 +53,6 @@
   </div>
 </div>
 </div>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/scripts.js"></script>
 </body>
 </html>
 

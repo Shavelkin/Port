@@ -28,6 +28,20 @@ public class CaptainRequestService {
         captainRequestDAO.changeStatusToCancelled(id);
     }
 
+    public void changeStatusToRejected(Integer id) {
+        captainRequestDAO.changeStatusToRejected(id);
+    }
+
+    public void changeStatusToApproved(Integer id) {
+        captainRequestDAO.changeStatusToApproved(id);
+    }
+
+    public void setPier(Integer idRequest, Integer idPier) {
+        captainRequestDAO.setPier(idRequest, idPier);
+    }
+
+    public void freePier(Integer idPier) { captainRequestDAO.freePier(idPier); }
+
     public void createRequest(CaptainRequest request) {
         captainRequestDAO.save(request);
     }
@@ -39,15 +53,9 @@ public class CaptainRequestService {
         return captainRequestDAO.findCurrentRequestByCaptain(captainId);
     }
 
-//    public void deleteRequest(Integer requestId) {
-
-//        CaptainRequest request = CaptainRequestDAOImpl.findById(requestId);
-//        if (request.getStatus().equals(CaptainRequestStatus.APPROVED) && !request.getTrip().getTripStatus().equals(TripStatus.COMPLETED)) {
-//            Trip trip = request.getTrip();
-//            tripDAO.update(trip.setFreeSeats(trip.getFreeSeats()+1));
-//        }
-//        requestDAO.delete(requestId);
-//    }
+    public CaptainRequest findById(Integer id) {
+        return captainRequestDAO.findById(id);
+    }
 
     public List<CaptainRequest> getWaitingRequests(){
         return captainRequestDAO.findWaitingRequests();

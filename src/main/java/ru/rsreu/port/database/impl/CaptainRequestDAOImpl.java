@@ -28,7 +28,6 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
 
     @Override
     public void save(CaptainRequest request) {
-        System.out.println("METHOD SAVE");
         String query = resourcer.getString("request.save");
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, request.getCaptainId());
@@ -57,16 +56,6 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
 
     @Override
     public void update(CaptainRequest request) {
-//        String query = resourcer.getString("request.update");
-//
-//        try (PreparedStatement statement = connection.prepareStatement(query)) {
-//            statement.setString(1, request.getStatus().toString());
-//            statement.setInt(2, request.getId());
-//
-//            statement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Override
@@ -139,29 +128,7 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
     }
 
     @Override
-    public List<Pilot> findFreePilotList() {
-        return null;
-    }
-
-    @Override
-    public Ship findShipByCaptainId(Integer captainId) {
-        return null;
-    }
-
-    @Override
     public Integer findNumberRequestByCaptain(Integer captainId) {
-//        String query = ProjectResourcer.getInstance().getString("request.find.by.captain");
-//        try (PreparedStatement ps = connection.prepareStatement(query)) {
-//            ps.setInt(1, captainId);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                return DAOMapper.mapCaptainRequest(rs);
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-
         String query = ProjectResourcer.getInstance().getString("request.find.by.captain");
         List<CaptainRequest> requests = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(query)) {
@@ -230,14 +197,45 @@ public class CaptainRequestDAOImpl extends AbstractDAO implements CaptainRequest
         }
     }
 
-
-    @Override
-    public List<User> findAllCaptainList() {
-        return null;
+    public void changeStatusToRejected(Integer id) {
+        String query = resourcer.getString("request.change.status");
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, CaptainRequestStatus.REJECED.toString());
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public List<User> findAllDispatcherList() {
-        return null;
+    public void setPier(Integer idRequest, Integer idPier) {
+        String query = resourcer.getString("request.set.pier");
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, idPier);
+            statement.setInt(2, idRequest);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        query = resourcer.getString("set.pier");
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, findById(idRequest).getCaptainId());
+            statement.setInt(2, idPier);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void freePier(Integer idPier) {
+        String query = resourcer.getString("free.pier");
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, idPier);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

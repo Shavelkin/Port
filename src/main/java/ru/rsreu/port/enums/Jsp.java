@@ -15,6 +15,8 @@ public enum Jsp {
     ADD_USER("/jsp/admin/addUser.jsp"),
     DELETE_USER("/jsp/admin/deleteUser.jsp"),
     CHANGE_USER("/jsp/admin/changeUser.jsp"),
+    APPROVE_REQUEST("/jsp/dispatcher/approveRequest.jsp"),
+    REJECT_REQUEST("/jsp/dispatcher/rejectRequest.jsp"),
 
     INFO_CURRENT_REQUEST("/jsp/captain/infoCurrentRequest.jsp"),
     NOT_FOUND("/jsp/404.jsp");

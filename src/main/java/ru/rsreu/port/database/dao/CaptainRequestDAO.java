@@ -14,16 +14,13 @@ public interface CaptainRequestDAO {
     List<CaptainRequest> findWaitingRequests();
     List<Pier> findFreePiers();
     List<Pier> findBusyPiers();
-    List<Pilot> findFreePilotList();
-    Ship findShipByCaptainId(Integer captainId);
     Integer findNumberRequestByCaptain(Integer captainId);
 
-    CaptainRequest findCurrentRequestByCaptain(Integer captainId);
+    CaptainRequest findCurrentRequestByCaptain(Integer captainId);;
     void changeStatusToCompleted(Integer id);
     void changeStatusToCancelled(Integer id);
-
     void changeStatusToApproved(Integer id);
-
-    List<User> findAllCaptainList();
-    List<User> findAllDispatcherList();
+    void changeStatusToRejected(Integer id);
+    void setPier(Integer idRequest, Integer idPier);
+    void freePier(Integer idPier);
 }

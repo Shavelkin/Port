@@ -5,12 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="429e855c-d436-47dc-9ced-35fe86a65ad5" name="Changes" comment="port">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/dispatcher/ApproveRequestCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/dispatcher/RejectRequestCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/dispatcher/approveRequest.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/dispatcher/rejectRequest.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/SessionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/admin/ChangeUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/servlets/command/admin/ChangeUserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/changeUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/changeUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/deleteUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/deleteUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/crutches/crutchesDB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/DAOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/DAOMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/config/CommandConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/config/CommandConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/dao/CaptainRequestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/dao/CaptainRequestDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/CaptainRequestDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/CaptainRequestDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/Pier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/Pier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/Pilot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/Ship.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/enums/CaptainRequestStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/entity/enums/CaptainRequestStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/enums/Route.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/CaptainRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rsreu/port/service/CaptainRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/dispatcher/dispatcherProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/dispatcher/dispatcherProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/waitingRequestList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/waitingRequestList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,31 +93,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Project/Port/src/main/webapp/jsp/admin",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/Port/src/main/java/ru/rsreu/port&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Project\Port\src\main\webapp\jsp\admin" />
-      <recent name="D:\Project\Port\src\main\webapp\jsp" />
       <recent name="D:\Project\Port\src\main\java\ru\rsreu\port" />
+      <recent name="D:\Project\Port\src\main\webapp\jsp\dispatcher" />
+      <recent name="D:\Project\Port\src\main\webapp\jsp" />
+      <recent name="D:\Project\Port\src\main\webapp\jsp\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\My Projects\Port\src\main\java\ru\rsreu\port\servlets\command\captain" />
@@ -111,11 +127,11 @@
       <recent name="D:\Project\Port\src\main\webapp\jsp\admin" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.rsreu.port.utils" />
+      <recent name="ru.rsreu.port.servlets.command.dispatcher" />
       <recent name="ru.rsreu.port.servlets.command.admin" />
       <recent name="ru.rsreu.port.database.impl" />
-      <recent name="ru.rsreu.port.utils" />
       <recent name="ru.rsreu.port.database.dao" />
-      <recent name="ru.rsreu.port.entity" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.711">
@@ -424,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675975244990</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="port">
+      <created>1675976958464</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1675976958464</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,11 +477,6 @@
           <properties class="java.sql.SQLException" package="java.sql" />
           <option name="timeStamp" value="10" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/rsreu/port/database/impl/UserDAOImpl.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

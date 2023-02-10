@@ -1,7 +1,6 @@
 package ru.rsreu.port.database;
 
 import ru.rsreu.port.entity.CaptainRequest;
-import ru.rsreu.port.entity.Ship;
 import ru.rsreu.port.entity.User;
 import ru.rsreu.port.entity.Session;
 import ru.rsreu.port.entity.enums.CaptainRequestStatus;

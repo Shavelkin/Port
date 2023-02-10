@@ -14,6 +14,8 @@ public enum Route {
     USER_LIST("/userList"),
     INFORM_ABOUT_MOVEMENT("/informAboutMovement"),
     CANCEL_REQUEST("/cancelRequest"),
+    APPROVE_REQUEST("/approveRequest"),
+    REJECT_REQUEST("/rejectRequest"),
 
     ACTIVE_REQUEST_LIST("/activeRequestList"),
 
